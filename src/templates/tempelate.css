@@ -1,0 +1,104 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.root{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: rgb(197, 192, 192);
+    margin: 0;
+    height: 100px;
+    text-align: center;
+    padding: 20px;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+.homepage-main{
+    display:flex;
+    background-color: rgb(240, 231, 231);
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.homepage-right{
+    background-image:url(https://media4.s-nbcnews.com/j/newscms/2018_29/2504731/180720-read-book-good-health-ac-417p_d45a94886721a00630767948819fb120.nbcnews-fp-1024-512.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 700px;
+    flex-basis: 400px;
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+.form-div-2{
+    height:350px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid green;
+    background-color: rgb(201, 183, 183);
+    box-shadow: 2px 2px 10px rgb(161, 159, 160);
+    
+}
+
+
+.homepage-left{
+    background: linear-gradient(to left, rgb(64, 87, 81),rgb(104, 81, 80));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+    flex-basis: 400px;
+    flex-grow: 2;
+
+}
+
+
+.form-div-1{
+    height:350px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid green;
+    background-color: rgb(201, 183, 183);
+    box-shadow: 2px 2px 10px rgb(161, 159, 160);
+    
+}
+
+.search-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.homepage-signup{
+    background-color: lightslategray;
+}
+
+
+
+
+
