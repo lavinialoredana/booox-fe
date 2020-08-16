@@ -4,9 +4,14 @@ import css from '../App.css';
 
 const Header = ( ) => {
     return (
-        <div className='header'>
-            <h1 className="header-text"> This is the header </h1>
-        </div>
+        <header>
+            <h1>Welcome to The World Of Books</h1>
+            <h4>Exchange, Get it free, Donate/ Do a Giveaway, Lend ...check our features menu to discover all the
+                features </h4>
+            <nav>
+                
+            </nav>
+        </header>
     )
 }
 
