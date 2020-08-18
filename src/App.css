@@ -70,7 +70,7 @@ h1{
 }
 .form-div-3{
     margin-top: 20px;
-    height:350px;
+    height:fit-content;
     width: 60%;
     display: flex;
     flex-direction: column;
