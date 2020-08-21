@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 import BookUpload from "./components/BookUpload";
@@ -6,7 +6,7 @@ import BookUpload from "./components/BookUpload";
 function App() {
   return (
     <div className="main-app">
-      <main class="homepage-main">
+      <main className="homepage-main">
         <BookUpload />
       </main>
     </div>
