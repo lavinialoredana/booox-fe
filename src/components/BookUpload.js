@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import Button from "./Button";
+// import Button from "./Button";
 
 const BookUpload = () => {
   const [formData, setFormData] = useState({
@@ -13,18 +13,49 @@ const BookUpload = () => {
     language: "",
   });
 
+  // const initialForm = {
+  //   title: "",
+  //   author: "",
+  //   publisher: "",
+  //   published_date: "2020-01-01",
+  //   isbn: "",
+  //   subtitle: "",
+  //   language: "",
+  // };
+
   const handleOnChange = (event) => {
     const updateFormData = {
-      formData,
+      ...formData,
       [event.target.name]: event.target.value,
     };
     setFormData(updateFormData);
   };
 
+  const handleSubmit = async (event) => {
+    await fetch("http://localhost:3001/book", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // We convert the React state to JSON and send it as the POST body
+      body: JSON.stringify(formData),
+    }).then(function (response) {
+      console.log(response);
+      console.log(response.json());
+    });
+
+    event.preventDefault();
+  };
+
   return (
     <div className="book-form-div">
       <h2>Upload your book</h2>
-      <form className="book-upload-form" action="/book" method="POST">
+      <form
+        className="book-upload-form"
+        // action="/book"
+        // method="POST"
+        onSubmit={handleSubmit}
+      >
         <div>
           <label htmlFor="book-title">Book title</label>
           <input
@@ -115,7 +146,10 @@ const BookUpload = () => {
         <input type="checkbox" name="Vintage" id="book-state-vintage" />
         </div> */}
 
-        <Button buttonName="Submit" />
+        {/* <Button buttonName="Submit" /> */}
+        <button className="button-normal" onClick={handleSubmit}>
+          Submit
+        </button>
       </form>
     </div>
   );

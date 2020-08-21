@@ -1,34 +1,29 @@
-*{
-    margin:0px;
+* {
+    margin: 0px;
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
 
-#root{
+#root {
     height: 100vh;
     width: 100%;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to left, rgba(219, 135, 66, 0.973) , rgb(95, 90, 90));
+    background-image: linear-gradient(to left, rgba(219, 135, 66, 0.973), rgb(95, 90, 90));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
 }
 
-.book-upload-form div{
+.book-upload-form div {
     margin: 10px;
 }
 
-.book-upload-form div label{
+.book-upload-form div label {
     margin: 0px 10px;
 }
-
-
-
-
