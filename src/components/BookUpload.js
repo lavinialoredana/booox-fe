@@ -15,11 +15,19 @@ const BookUpload = () => {
 
   const handleOnChange = (event) => {
     const updateFormData = {
-      formData,
+      ...formData,
       [event.target.name]: event.target.value,
     };
     setFormData(updateFormData);
   };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const formPayload = {
+      
+      
+  //   }
+  // }
 
   return (
     <div className="book-form-div">

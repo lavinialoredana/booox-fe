@@ -9,7 +9,7 @@
 }
 
 #root{
-    height: 100vh;
+    height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -21,12 +21,25 @@
     
 }
 
+.homepage-main{
+    display: flex;
+    flex-direction: row;
+}
+
 .book-upload-form div{
     margin: 10px;
 }
 
 .book-upload-form div label{
     margin: 0px 10px;
+}
+
+.single-book-details{
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid green;
+    border-radius: 10px;
+    background: rgb(97, 130, 192);
 }
 
 
