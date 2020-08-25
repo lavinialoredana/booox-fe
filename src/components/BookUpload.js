@@ -11,15 +11,15 @@ const BookUpload = () => {
     isbn: "",
     subtitle: "",
     langauage: "",
+
   });
 
   const handleOnChange = (event) => {
     const updateFormData = {
-      formData,
+      ...formData,
       [event.target.name]: event.target.value,
     };
     setFormData(updateFormData);
-  };
 
   return (
     <div className="uploadbook-form">
@@ -126,13 +126,13 @@ const BookUpload = () => {
           {/* <div>
         
         <div>Book state</div>
-        <label for="book-state">Brand New</label>
+        <label htmlFor="book-state">Brand New</label>
         <input type="checkbox" name="Brand-New" id="book-state-new" />
 
-        <label for="book-state">Pre Loved</label>
+        <label htmlFor="book-state">Pre Loved</label>
         <input type="checkbox" name="Pre-Loved" id="book-state-pre-loved" />
 
-        <label for="book-state">Vintage</label>
+        <label htmlFor="book-state">Vintage</label>
         <input type="checkbox" name="Vintage" id="book-state-vintage" />
         </div> */}
           <Button buttonName="Submit" />
