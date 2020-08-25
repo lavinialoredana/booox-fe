@@ -28,8 +28,43 @@ const SearchResults = ( ) =>{
    finalSearchValue.toLowerCase();
    
 
-   const filtered = fetchedData.filter((any) => any.author.toLowerCase().includes(finalSearchValue) || any.title.toLowerCase().includes(finalSearchValue) || any.language.toLowerCase().includes(finalSearchValue) || any.publisher.toLowerCase().includes(finalSearchValue) || any.title.toLowerCase().includes(finalSearchValue));
+   const filtered = fetchedData.filter((any) => any.author.toLowerCase().includes(finalSearchValue) || any.title.toLowerCase().includes(finalSearchValue) || any.language.toLowerCase().includes(finalSearchValue) || any.publisher.toLowerCase().includes(finalSearchValue) || any.subtitle.toLowerCase().includes(finalSearchValue));
    console.log("filtered", filtered);
+
+   const DisplayAll = ( ) => {
+       if (finalSearchValue === "*"){
+           return (
+            fetchedData.map(any => {
+                return (
+                    <div className="single-book-details">
+                    <div >{any.title}</div>
+                    <div >{any.author}</div>
+                    <div >{any.published_date}</div>
+                    <div >{any.publisher}</div>
+                    <div >{any.subtitle}</div>
+                    <div >{any.language}</div>
+                    <div >{any.isbn}</div>
+                    </div>
+                )
+            })
+           )
+       }
+       else{ return (
+        filtered.map(any => {
+            return (
+                <div className="single-book-details">
+                <div >{any.title}</div>
+                <div >{any.author}</div>
+                <div >{any.published_date}</div>
+                <div >{any.publisher}</div>
+                <div >{any.subtitle}</div>
+                <div >{any.language}</div>
+                <div >{any.isbn}</div>
+                </div>
+            )
+        })
+       )}
+   }
 
   
    
@@ -46,24 +81,11 @@ const SearchResults = ( ) =>{
     return (
         <div>
             <Search search={setFinalSearchValue}/>
-            {filtered ? 
-            filtered.map(any => {
-                return (
-                    <div className="single-book-details">
-                    <div >{any.title}</div>
-                    <div >{any.author}</div>
-                    <div >{any.published_date}</div>
-                    <div >{any.publisher}</div>
-                    <div >{any.subtitle}</div>
-                    <div >{any.language}</div>
-                    <div >{any.isbn}</div>
-                    </div>
-                )
-            })
+            {finalSearchValue ? DisplayAll()
              
              
              
-            :  <div>Do search with title, bookname,  </div>}
+            : <div>Do search with title, bookname,  </div>}
         </div>
     )
 }

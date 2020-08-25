@@ -3,6 +3,7 @@ import "../App.css";
 import Button from "./Button";
 
 const BookUpload = () => {
+
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -10,7 +11,7 @@ const BookUpload = () => {
     published_date: "",
     isbn: "",
     subtitle: "",
-    langauage: "",
+    language: "",
 
   });
 
@@ -20,6 +21,7 @@ const BookUpload = () => {
       [event.target.name]: event.target.value,
     };
     setFormData(updateFormData);
+  }
 
   return (
     <div className="uploadbook-form">

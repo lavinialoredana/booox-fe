@@ -4,8 +4,8 @@ import "./App.css";
 
 import BookUpload from "./components/BookUpload";
 
-import Page2 from "./components/Page2";
-import Page3 from "./components/Page3";
+// import Page2 from "./components/Page2";
+// import Page3 from "./components/Page3";
 // import NavigationBar from "./components/NavigationBar";
 
 import SearchResults from "./components/SearchResults";
