@@ -22,11 +22,11 @@ const BookUpload = () => {
   };
 
   return (
-    <div className="uploadbook-form">
-      <div className="book-cover">
+    <div className="main-container">
+      <div className="bookcover-container">
         <img
           src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/3410f355901095.56099d855bd94.jpg"
-          alt="emily bronte"
+          alt="emily bronte book cover"
         ></img>
       </div>
       <div className="uploadbook-form-container">

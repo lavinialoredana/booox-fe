@@ -1,5 +1,5 @@
 * {
-    background-color: #f3eff2;
+  background-color: #f3eff2;
 }
 
 * {
@@ -11,61 +11,82 @@
 #root {
   height: 100vh;
   width: 100%;
-  margin-top: 200px;
-  margin-left: 100px;
-  padding: 0;
-  
- 
-  /* display: flex;
+  display: flex;
   flex-direction: column; 
-  align-items: center;
-  justify-content: center;  */
+  /* align-items: center; */
+  /* justify-content: center;  */
 }
 
-.uploadbook-form {
+
+.homepage-main h1, h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    background-color: #F0D053;
+   
+    color: #121c25;
+}
+
+.homepage-main h3{
+    padding-top:20px;
+    font-size:medium;
+    padding-bottom: 20px;
+
+}
+
+.homepage-main h1{
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.main-container {
   margin: 90px;
   background-color: #0090ce;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-items:flex-start;
+  align-items: flex-start;
   height: 600px;
+  width: 1200px;
   text-align: start;
 }
 
-.book-cover {
-    background-color: #0090ce;
-    height: 600px;
-    width: 600px;
+.bookcover-container {
+  background-color: #0090ce;
+  height: 600px;
+  /* width: 600px; */
 }
 
-.book-cover img{
- margin-top: 20px;
- margin-bottom: 20px;
- margin-left: 20px;
- width: 540px;
- height:90% ;
-} 
+.bookcover-container img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  width: 540px;
+  height: 90%;
+}
+
+.uploadbook-form-container{
+    display: block;
+}
 
 .uploadbook-form-container h2 {
-    margin-top: 25px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    text-transform: uppercase;
-    font-size: large;
-    font-weight: lighter;
-    color: #121c25;
-    text-align: left;
-    background-color: #0090ce;
-  }
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  font-size: large;
+  font-weight: lighter;
+  color: #121c25;
+  text-align: left;
+  background-color: #0090ce;
+  
+}
 
 .uploadbook-form {
-  margin: 0px;
   text-align: left;
   background-color: #0090ce;
 }
-
-
 
 .label-top {
   display: block;
@@ -74,4 +95,11 @@
   font-family: "Times New Roman", Times, serif;
   font-size: small;
   background-color: #0090ce;
+}
+
+
+.uploadbook-form-container input {
+    width: 450px;
+    height: 25px;
+   
 }
