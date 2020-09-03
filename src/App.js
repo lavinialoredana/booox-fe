@@ -12,14 +12,21 @@ import BookUpload from "./components/BookUpload";
 import SearchResults from "./components/SearchResults";
 import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
+import Login from "../src/components/Login"
+import SignUp from "../src/components/SignUp";
 
 
 function App() {
   return (
     <Router>
       <div>
-      <Route path="/landingPage"  component={Navigation} />
-      <Route component={HomePage} />
+      <Navigation />  
+        <Switch>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={SignUp} />
+      </Switch>
+
 
         
     </div>

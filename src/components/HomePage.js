@@ -10,6 +10,8 @@ import SearchResults from './SearchResults';
 const HomePage = (props) =>{
 
     return (
+        <div>
+            
         <div className="home-page">
             <div className="homepage-right">
              <div>           
@@ -23,6 +25,7 @@ const HomePage = (props) =>{
             <div className="search-results-div">
             <SearchResults />
             </div>
+        </div>
         </div>
     )
 }
