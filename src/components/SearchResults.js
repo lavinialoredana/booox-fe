@@ -23,7 +23,7 @@ const SearchResults = ( ) =>{
 
    }, [])
 
-   console.log(fetchedData);
+   console.log("fetchedData", fetchedData);
 
    finalSearchValue.toLowerCase();
    
@@ -53,13 +53,13 @@ const SearchResults = ( ) =>{
         filtered.map(any => {
             return (
                 <div className="single-book-details">
-                <div >{any.title}</div>
-                <div >{any.author}</div>
-                <div >{any.published_date}</div>
-                <div >{any.publisher}</div>
-                <div >{any.subtitle}</div>
-                <div >{any.language}</div>
-                <div >{any.isbn}</div>
+                <div >Title : {any.title}</div>
+                <div >Author : {any.author}</div>
+                <div >Published date: {any.published_date}</div>
+                <div >Publisher: {any.publisher}</div>
+                <div >Subtitle :{any.subtitle}</div>
+                <div >Language: {any.language}</div>
+                <div >ISBN : {any.isbn}</div>
                 </div>
             )
         })
@@ -73,19 +73,17 @@ const SearchResults = ( ) =>{
  
 
 
-
+const display = {
+    display: "none"
+};
 
     
 
 
     return (
-        <div>
-            <Search search={setFinalSearchValue}/>
-            {finalSearchValue ? DisplayAll()
-             
-             
-             
-            : <div>Do search with title, bookname,  </div>}
+        <div className="search-results">
+            <div ><Search search={setFinalSearchValue} /></div>
+            {finalSearchValue ? DisplayAll() : <p>"type something"</p>}
         </div>
     )
 }

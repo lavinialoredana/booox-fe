@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 
 import BookUpload from "./components/BookUpload";
@@ -9,24 +10,20 @@ import BookUpload from "./components/BookUpload";
 // import NavigationBar from "./components/NavigationBar";
 
 import SearchResults from "./components/SearchResults";
+import HomePage from "./components/HomePage";
+import Navigation from "./components/Navigation";
 
 
 function App() {
   return (
-   
-    <div className="main-app">
-      <main class="homepage-main">
-      <h3 className= "m3 d-flex justify-content-center"> Real Books</h3>
-    <h5 className= "m3 d-flex justify-content-center"> Exchange books. Real books. The ones with scribbles, dust and (wink!) bookmarks! </h5>
-       {/* <NavigationBar/> */}
+    <Router>
+      <div>
+      <Route path="/landingPage"  component={Navigation} />
+      <Route component={HomePage} />
 
-        <BookUpload />
-
-        <div>
-        <SearchResults />
-        </div>
-      </main>
+        
     </div>
+    </Router>
   );
 }
 

@@ -65,7 +65,7 @@ const BookUpload = () => {
             id="book-title"
             name="title"
             onChange={handleOnChange}
-            value={formData.title || ""}
+            value={formData.title}
           />
         </div>
 
