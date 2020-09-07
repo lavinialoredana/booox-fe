@@ -8,7 +8,7 @@ const HomePage = (props) => {
   return (
     <div>
       <div className="home-page">
-        <h1>No book should ever lay idle.</h1>
+        <h1 className="title">No book should ever lay idle.</h1>
         <div>
           <button className="btn-borrow">Borrow a book</button>
           <button className="btn-lend">Lend a book</button>
