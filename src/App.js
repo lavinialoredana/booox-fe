@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -14,17 +14,23 @@ import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
 import Login from "../src/components/Login"
 import SignUp from "../src/components/SignUp";
+import LoggedInNavigation from "./components/LoggedInNavigation";
+import UserPage from "./components/UserPage";
 
 
 function App() {
+
+
+
   return (
     <Router>
       <div>
-      <Navigation />  
+      { window.location.pathname === "/loggedIn/" ? <LoggedInNavigation /> : <Navigation />   }
         <Switch>
       <Route path="/" exact component={HomePage} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/loggedIn/" component={UserPage} />
       </Switch>
 
 

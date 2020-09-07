@@ -110,11 +110,6 @@
 
 }
 
-.single-book-details{
-  position: absolute;
-  top: 100px;
-}
-
 .search{
   position: absolute;
   top: 30px;
@@ -142,6 +137,143 @@
 .search-results p{
 margin-top:30px;
 text-align: left;
+
+}
+
+/*USER PAGE................................................................................*/
+
+.user-page{
+  width: 100%;
+  min-height: 800px;
+  background-color: rgba(0, 0, 0, 0.356);
+  display: flex;
+  flex-direction: row;
+}
+
+.user-page-left{
+  flex-basis: 20%;
+  background-color: rgb(121, 121, 184);
+}
+
+.user-page-right{
+  flex-basis: 80%;
+
+}
+
+/* login......................................................*/
+*{
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.login-register-body{
+  background-color: rgb(150, 148, 53);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-image: url(./components/fotos/logincover.svg);
+  background-position: left ;
+
+}
+
+.login-register-container{
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 350px;
+  max-width: 100%;
+  overflow: hidden;
+  box-shadow: 1px 1px 20px rgb(119, 53, 53);
+}
+.login-register-header{
+  background-color: rgb(159, 216, 137);
+  text-align: center;
+  padding: 10px 40px;
+}
+.header p{
+  font-size: 0.7rem;
+} 
+.header h1{
+  margin: 0;
+  font-size: 1.5rem;
+}
+.form{
+  padding: 20px 30px;
+}
+.form-control{
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.form-control label{
+  display: block;
+  margin-bottom: 5px;
+
+}
+.form-control input{
+  border: 1px solid rgb(65, 27, 233);
+  border-radius: 2px;
+  display: block;
+  font-size: 1.5rem;
+  width: 100%;
+}
+.form-control.success input{
+  border-color: rgb(140, 224, 224);
+}
+.form-control.error input{
+  border: 2px solid red ;
+}
+.form-control i{
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  visibility: hidden;
+
+}
+.form-control.success i.fa-check-circle{
+  color:green;
+  visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle{
+  color:red;
+  visibility: visible;
+}
+
+
+.form-control small{
+  visibility: hidden;
+  position: absolute;
+  bottom: 0px;
+  left:0px;
+}
+.form-control.error small{
+  color:red;
+  visibility: visible;
+}
+
+.form button{
+  background-color: rgb(161, 102, 168);
+  border: 2px solid green;
+  border-radius: 3px;
+  color: white;
+  display: block;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+  padding: 6px;
+  width: 100%;
+}
+.form button:hover{
+  background-color: rgb(28, 100, 124);
+}
+
+.renderAverage {
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(19, 206, 28);
+  font-weight: bolder;
 
 }
 

@@ -31,7 +31,7 @@ const SearchResults = ( ) =>{
    const filtered = fetchedData.filter((any) => any.author.toLowerCase().includes(finalSearchValue) || any.title.toLowerCase().includes(finalSearchValue) || any.language.toLowerCase().includes(finalSearchValue) || any.publisher.toLowerCase().includes(finalSearchValue) || any.subtitle.toLowerCase().includes(finalSearchValue));
    console.log("filtered", filtered);
 
-   const DisplayAll = ( ) => {
+   const DisplayAll = () => {
        if (finalSearchValue === "*"){
            return (
             fetchedData.map(any => {
