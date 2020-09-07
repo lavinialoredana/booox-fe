@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            margin: 20px;
+        }
+
+        .books-post{
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+            background-color: rgb(163, 134, 134);
+        }
+
+        input{
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; height: 700px; width: 100%; border: 1px solid black; background: darkgray; flex-direction: row;">
+        <div style="flex-basis: 30%; background: darkgreen;">
+            <h1>member area</h1>
+            <ul>
+                <li>HOME</li>
+                <li>POST NEW BOOK</li>
+                <li>MY BOOKS</li>
+                <li>MESSAGE</li>
+                <li>CHANGE INFO</li>
+                <li>CHANGE PASSWORD</li>
+                <li>LOGOUT</li>
+            </ul>
+        
+        </div>
+        <div style="flex-basis: 30%; background: darkkhaki; margin-left: 20px;">
+        <h1>logged in as : roshan sapkota</h1>
+        <h4>Hello roshan sapkota. Welcome to your member area!
+
+            From here, you can post your book, update information about your existing book, update contact information and change your password.
+            
+            Please choose your action from the menu on the left hand side.
+            
+            If you require any help, please contact us at demo.something@gmail.com</h4>
+
+            <div style="margin: 20px;">
+                <h2>Account status:</h2>
+                <ul>
+                    <li>USERS New Messages	0</li>
+                    <li>Number of book listings 0</li>
+                    <li>People who have contacted you:	0</li>
+                    <li>Number of books given away:	0</li>
+                </ul>
+            </div>
+        </div>
+        <div style="flex-basis: 30%; background-color: rgb(79, 78, 90); margin-left: 5px; display: flex; flex-direction: column;">
+            <input type="text" name="" id="" placeholder="search books here ">
+            <h2 class="books-post">Books post (contains book details)</h2>
+            <p style="flex: unset;">comment on the post</p>
+            <h2 class="books-post">Books post (contains book details)</h2>
+            <p>comment on the post</p>
+
+            <h2 class="books-post">Books post (contains book details)</h2>
+            <p>comment on the post</p>
+
+            <h2 class="books-post">Books post (contains book details)</h2>
+            <p>comment on the post</p>
+
+        </div>
+    </div>
+    
+</body>
+</html>
