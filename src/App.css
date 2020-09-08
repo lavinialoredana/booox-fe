@@ -163,13 +163,32 @@ a {
   padding: 10px;
   margin: 10px;
   border: 1px solid green;
-  position: absolute;
   top: 30px;
   margin-left: 100px;
   text-align: left;
-  background-color: rgba(75, 46, 141, 0.575);
+  background-color: rgba(227, 225, 230, 0.932);
+  position: relative;
 
 }
+.single-book-details div{
+  border-bottom: 1px solid grey;
+  padding: 5px;
+}
+
+.book-delete-button{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top:5px;
+  right:5px;
+  text-align: center;
+}
+
+
+.book-delete-button:hover{
+  background-color: rgb(253, 0, 0);
+}
+
 
 .search{
   position: absolute;
