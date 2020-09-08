@@ -8,6 +8,8 @@ import '../App.css';
 
 const Delete = (props) =>{
 
+  const [isDeleted, setIsDeleted] = useState(true);
+
     
       const deleteFunction = (id) => {
           fetch('/delete?q=' + id, {
@@ -16,13 +18,23 @@ const Delete = (props) =>{
               "Content-Type" : "application.json"
             }
           } )
+          if (isDeleted === true){
+            setIsDeleted(false);
+
+          }
+
+          if(isDeleted === false){
+            setIsDeleted(true);
+          }
+
+          props.reRenderFunction(isDeleted)
 
       }
 
 
 
 
-    return <button className="book-delete-button" onClick={ () => {deleteFunction(props.idToDelete)}}>X</button> 
+    return <button className="book-delete-button"  onClick={ () => {deleteFunction(props.idToDelete)}}><p>DELETE</p></button> 
 }
 
 export default Delete;

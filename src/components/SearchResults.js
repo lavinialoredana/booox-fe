@@ -19,7 +19,7 @@ const SearchResults = () => {
       .then((res) => res.json())
       .then((result) => setFetchedData(result))
       .catch((error) => console.error(error));
-  }, [finalSearchValue]);
+  }, [finalSearchValue, renderOnDelete]);
 
   
 
@@ -60,7 +60,7 @@ const SearchResults = () => {
       return fetchedData.map((any) => {
         return (
           <div className="single-book-details">
-            <Delete idToDelete={any.id} />
+            <Delete idToDelete={any.id} reRenderFunction={setRenderOnDelete}/>
             <div>Title : {any.title}</div>
             <div>Author : {any.author}</div>
             <div>Published date: {any.published_date}</div>

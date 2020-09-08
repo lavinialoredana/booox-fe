@@ -177,12 +177,19 @@ a {
 
 .book-delete-button{
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 20px;
+  padding: 5px;
   top:5px;
   right:5px;
   text-align: center;
 }
+
+.book-delete-button p {
+  margin: 0px;
+}
+
+
 
 
 .book-delete-button:hover{
