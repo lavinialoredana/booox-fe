@@ -5,11 +5,10 @@ import Delete from "./Delete";
 
 const SearchResults = () => {
   const [finalSearchValue, setFinalSearchValue] = useState("");
-  console.log("finaaalsearchvalue", finalSearchValue);
 
   const [fetchedData, setFetchedData] = useState([]);
 
-  const [renderOnDelete, setRenderOnDelete] = useState()
+  const [renderOnDelete, setRenderOnDelete] = useState(false);
 
   
 
@@ -21,15 +20,19 @@ const SearchResults = () => {
       .catch((error) => console.error(error));
   }, [finalSearchValue, renderOnDelete]);
 
-  
+  const changeDeleteState = ( ) => {
+    if (renderOnDelete === false){
+      setRenderOnDelete(true);
+
+    }
+
+    else {
+      setRenderOnDelete(false);
+    }
+    console.log(renderOnDelete);
+  }
 
  
-
-
-
-  console.log("fetchedData", fetchedData);
-  console.log(finalSearchValue);
-
 //   const filtered = fetchedData.filter(
 //     (any) =>
 //       any.author.toLowerCase().includes(finalSearchValue) ||
@@ -60,7 +63,7 @@ const SearchResults = () => {
       return fetchedData.map((any) => {
         return (
           <div className="single-book-details">
-            <Delete idToDelete={any.id} reRenderFunction={setRenderOnDelete}/>
+            <Delete idToDelete={any.id} reRenderFunction={changeDeleteState}/>
             <div>Title : {any.title}</div>
             <div>Author : {any.author}</div>
             <div>Published date: {any.published_date}</div>

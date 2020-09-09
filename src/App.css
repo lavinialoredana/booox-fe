@@ -178,15 +178,14 @@ a {
 .book-delete-button{
   position: absolute;
   width: 30px;
-  height: 20px;
-  padding: 5px;
+  height: 30px;
   top:5px;
   right:5px;
   text-align: center;
-}
-
-.book-delete-button p {
-  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(219, 200, 200);
 }
 
 
@@ -194,6 +193,7 @@ a {
 
 .book-delete-button:hover{
   background-color: rgb(253, 0, 0);
+  cursor: pointer;
 }
 
 
@@ -245,6 +245,7 @@ text-align: left;
 
 .user-page-right{
   flex-basis: 80%;
+
 
 }
 
@@ -363,6 +364,16 @@ text-align: left;
   color: rgb(19, 206, 28);
   font-weight: bolder;
 
+}
+
+/*book upload*/
+.book-form-div{
+  display: flex;
+  width: 100%;
+  height: 60vh;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 

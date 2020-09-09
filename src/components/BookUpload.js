@@ -50,8 +50,10 @@ const BookUpload = () => {
   };
 
   return (
+    
+    
     <div className="book-form-div">
-      <h2>Upload your book</h2>
+      <div>BOOK UPLOAD FORM</div>
       <form
         className="book-upload-form"
         // action="/book"
@@ -161,7 +163,7 @@ const BookUpload = () => {
         </div> */}
 
         {/* <Button buttonName="Submit" /> */}
-        <button className="button-normal" onClick={handleSubmit}>
+        <button className="button-normal">
           Submit
         </button>
       </form>

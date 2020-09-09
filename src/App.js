@@ -31,6 +31,7 @@ function App() {
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
       <Route path="/loggedIn/" component={UserPage} />
+      <Route path="/uploadbook/" component={BookUpload} />
       </Switch>
 
 

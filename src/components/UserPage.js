@@ -3,6 +3,7 @@ import '../App.css';
 import LoggedInNavigation from './LoggedInNavigation';
 import Search from './SearchResults';
 import SearchResults from './SearchResults';
+import BookUpload from './BookUpload';
 
 
 
@@ -17,8 +18,8 @@ const UserPage = (props) =>{
             <div className="user-page-left"></div>
 
 
-            <div className="user-page-rigth">
-                <SearchResults />
+            <div className="user-page-right">
+            <BookUpload />
             </div>
             
         </div>
