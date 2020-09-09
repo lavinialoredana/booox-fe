@@ -1,113 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import '../App.css'; 
-import Button from './Button';
-
-
-
+import React, { useState, useEffect } from "react";
+import "../App.css";
+import Button from "./Button";
 
 const SignUp = () => {
-
-
-const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     id: "",
     firstName: "",
     lastName: "",
-    email: ""
-});
+    email: "",
+  });
 
-const handleOnChange = event => {
-    
+  const handleOnChange = (event) => {
     const updateFormData = {
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     };
     setFormData(updateFormData);
+  };
 
-
-}
-
-
-
-const [reRender, setReRender] = useState('enable')
-const handleSubmit = (event) => {
-    if (reRender === 'enable'){
-             setReRender('disable')
-    }
-
-    else{
-        setReRender('enable')
+  const [reRender, setReRender] = useState("enable");
+  const handleSubmit = (event) => {
+    if (reRender === "enable") {
+      setReRender("disable");
+    } else {
+      setReRender("enable");
     }
   };
-console.log(formData.firstName);
-console.log(formData.lastName);
-console.log(formData.email);
+  console.log(formData.firstName);
+  console.log(formData.lastName);
+  console.log(formData.email);
 
-
-
-const initialValue = {
+  const initialValue = {
     firstName: "",
     lastName: "",
-    email: ""
+    email: "",
+  };
 
-}
+  const [fetchedData, setFetchedData] = useState([]);
+  console.log(fetchedData);
 
-const [fetchedData, setFetchedData] = useState([])
-console.log(fetchedData);
+  console.log("rerender", reRender);
 
+  // function fetchData () {
 
+  // }
 
-
-console.log('rerender', reRender);
-
-// function fetchData () {
-
-
-
-// }
-
-
-
-
-
-    return (
-            <div className="form-div-3" >
-                <h2>Create Your Account Here</h2>
-            <form  class="login-form signup-form" method="POST" action="http://localhost:3000/userinfo" target="_blank" onSubmit={handleSubmit} >
-
-{/* <label for="username-new">Choose Your Username</label>
-<input type="username" name="username-new" id="username-new" /> */}
-
-<label for="firstname">First Name </label>
-<input type="text" name="firstName" id="firstname" onChange={handleOnChange} value={formData.firstName.toString()}/>
-
-<label for="lastname">Last Name</label>
-<input type="text" name="lastName" id="lastname" onChange={handleOnChange} value={formData.lastName.toString()} />
-
-<label for="email">Email</label>
-<input type="text" name="email" id="email" onChange={handleOnChange} value={formData.email.toString()}/>
-
-{/* <label for="address">Address</label>
-<input type="text" name="address" id="address" />
-
-<label for="password-new">Create Password</label>
-<input type="password" name="password-new" id="password-new" />
-
-<label for="confirm-password">Confirm Password</label>
-<input type="password" name="confirm-password" id="confirm-password" /> */}
-<Button type="submit" buttonName="SUBMIT" />
-</form>
-
-<div> 
-    <span>
-    {fetchedData.map( ( any) => {
-       return  <p>{any.name}</p>
-    })}
-    </span>
-</div>
-
+  return (
+    <div className="login-register-body">
+      <div className="login-register-container">
+        <div className="login-register-header">
+          <h1>Sign-Up</h1>
         </div>
-    )
-}
+
+        <form className="form" id="form">
+          <div className="form-control">
+            <level for="signup-name">Name</level>
+            <input type="text" id="signup-name" />
+            <i className="fas fa-check-circle" />
+            <i className="fas fa-exclamation-circle" />
+            <small>error message</small>
+          </div>
+          <div className="form-control">
+            <level for="signup-surname">Surname</level>
+            <input type="text" id="signup-surname" />
+            <i className="fas fa-check-circle" />
+            <i className="fas fa-exclamation-circle" />
+            <small>error message</small>
+          </div>
+          <div className="form-control">
+            <level for="signup-address">Address</level>
+            <input type="text" id="signup-address" />
+            <i className="fas fa-check-circle" />
+            <i className="fas fa-exclamation-circle" />
+            <small>error message</small>
+          </div>
+          <div className="form-control">
+            <level for="signup-username">Username</level>
+            <input type="text" id="signup-username" />
+            <i className="fas fa-check-circle" />
+            <i className="fas fa-exclamation-circle" />
+            <small>error message</small>
+          </div>
+          <div className="form-control">
+            <level for="signup-password">Password</level>
+            <input type="text" id="signup-password" />
+            <i className="fas fa-check-circle" />
+            <i className="fas fa-exclamation-circle" />
+            <small>error message</small>
+          </div>
+          <button>Register</button>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 export default SignUp;
-

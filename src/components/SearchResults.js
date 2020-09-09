@@ -1,39 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import Search from "./Search";
+import Delete from "./Delete";
 
 const SearchResults = () => {
   const [finalSearchValue, setFinalSearchValue] = useState("");
-  console.log(finalSearchValue);
+  console.log("finaaalsearchvalue", finalSearchValue);
 
   const [fetchedData, setFetchedData] = useState([]);
 
+  const [renderOnDelete, setRenderOnDelete] = useState();
+
   useEffect(() => {
-    fetch("/search")
+    fetch(`/search?q=${finalSearchValue}`)
       .then((res) => res.json())
       .then((result) => setFetchedData(result))
       .catch((error) => console.error(error));
-  }, []);
+  }, [finalSearchValue, renderOnDelete]);
 
   console.log("fetchedData", fetchedData);
+  console.log(finalSearchValue);
 
-  finalSearchValue.toLowerCase();
-
-  const filtered = fetchedData.filter(
-    (any) =>
-      any.author.toLowerCase().includes(finalSearchValue) ||
-      any.title.toLowerCase().includes(finalSearchValue) ||
-      any.language.toLowerCase().includes(finalSearchValue) ||
-      any.publisher.toLowerCase().includes(finalSearchValue) ||
-      any.subtitle.toLowerCase().includes(finalSearchValue)
-  );
-  console.log("filtered", filtered);
+  //   const filtered = fetchedData.filter(
+  //     (any) =>
+  //       any.author.toLowerCase().includes(finalSearchValue) ||
+  //       any.title.toLowerCase().includes(finalSearchValue) ||
+  //       any.language.toLowerCase().includes(finalSearchValue) ||
+  //       any.publisher.toLowerCase().includes(finalSearchValue) ||
+  //       any.subtitle.toLowerCase().includes(finalSearchValue)
+  //   );
+  //   console.log("filtered", filtered);
 
   const DisplayAll = () => {
     if (finalSearchValue === "*") {
       return fetchedData.map((any) => {
         return (
           <div className="single-book-details">
+            <Delete />
             <div>{any.title}</div>
             <div>{any.author}</div>
             <div>{any.published_date}</div>
@@ -45,9 +48,10 @@ const SearchResults = () => {
         );
       });
     } else {
-      return filtered.map((any) => {
+      return fetchedData.map((any) => {
         return (
           <div className="single-book-details">
+            <Delete idToDelete={any.id} reRenderFunction={setRenderOnDelete} />
             <div>Title : {any.title}</div>
             <div>Author : {any.author}</div>
             <div>Published date: {any.published_date}</div>
@@ -59,10 +63,6 @@ const SearchResults = () => {
         );
       });
     }
-  };
-
-  const display = {
-    display: "none",
   };
 
   return (

@@ -4,21 +4,42 @@ import Button from "./Button";
 
 const Search = (props) => {
   const [inputValue, setInputValue] = useState("");
-  const [inputValue1, setInputValue1] = useState("");
 
   const handleOnChange = (event) => {
-    const newData = event.target.value;
-    setInputValue(newData);
+    setInputValue(event.target.value);
   };
+
+  console.log(inputValue);
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
     props.search(inputValue);
-    setInputValue1("some");
   };
 
+  //   const handleOnSubmit = async (event) => {
+  //     await fetch("/search", {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       // We convert the React state to JSON and send it as the POST body
+  //       body: JSON.stringify(inputValue)
+  //     }).then(function (response) {
+  //       console.log(response);
+  //       response.json();
+  //     })
+
+  //     event.preventDefault();
+  //   };
+
+  //   const handleOnSubmit = (event) => {
+  //     event.preventDefault();
+  //
+
+  //   };
+
   return (
-    <div className={inputValue1 ? "search search1" : "search"}>
+    <div className="search">
       <form onSubmit={handleOnSubmit}>
         <label htmlFor="search"></label>
         <input
