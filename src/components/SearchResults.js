@@ -52,13 +52,13 @@ const SearchResults = () => {
         return (
           <div className="single-book-details">
             <Delete idToDelete={any.id} reRenderFunction={setRenderOnDelete} />
-            <div>Title : {any.title}</div>
-            <div>Author : {any.author}</div>
+            <div>Title: {any.title}</div>
+            <div>Author: {any.author}</div>
             <div>Published date: {any.published_date}</div>
             <div>Publisher: {any.publisher}</div>
-            <div>Subtitle :{any.subtitle}</div>
+            <div>Subtitle: {any.subtitle}</div>
             <div>Language: {any.language}</div>
-            <div>ISBN : {any.isbn}</div>
+            <div>ISBN: {any.isbn}</div>
           </div>
         );
       });
