@@ -64,13 +64,13 @@ const SearchResults = () => {
         return (
           <div className="single-book-details">
             <Delete idToDelete={any.id} reRenderFunction={changeDeleteState}/>
-            <div>Title : {any.title}</div>
-            <div>Author : {any.author}</div>
-            <div>Published date: {any.published_date}</div>
-            <div>Publisher: {any.publisher}</div>
-            <div>Subtitle :{any.subtitle}</div>
-            <div>Language: {any.language}</div>
-            <div>ISBN : {any.isbn}</div>
+            <div><b>Title :</b> {any.title}</div>
+            <div><b>Author :</b> {any.author}</div>
+            <div><b>Published date:</b> {any.published_date}</div>
+            <div><b>Publisher:</b> {any.publisher}</div>
+            <div><b>Subtitle :</b>{any.subtitle}</div>
+            <div><b>Language:</b> {any.language}</div>
+            <div><b>ISBN :</b>{any.isbn}</div>
           </div>
         );
       });
@@ -79,10 +79,11 @@ const SearchResults = () => {
 
   return (
     <div className="search-results">
-      <div>
         <Search search={setFinalSearchValue} />
+
+      <div className="search-results-display">
+      {DisplayAll()} 
       </div>
-      {finalSearchValue ? DisplayAll() : <p>"type something"</p>}
     </div>
   );
 };

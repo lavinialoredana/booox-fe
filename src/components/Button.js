@@ -3,7 +3,7 @@ import "../App.css";
 
 const Button = (props) => {
   return (
-    <button className="btn-main" onClick={props.handleSubmit}>
+    <button className="button" onClick={props.handleSubmit}>
       {props.buttonName}
     </button>
   );

@@ -4,21 +4,24 @@ import Button from "./Button";
 import Navigation from "./Navigation";
 import SearchResults from "./SearchResults";
 
+
 const HomePage = (props) => {
   return (
-    <div>
+    
       <div className="home-page">
-        <h1 className="title">No book should ever lay idle.</h1>
-        <div>
-          <button className="btn-borrow">Borrow a book</button>
-          <button className="btn-lend">Lend a book</button>
+        <div className="home-page-up">
+        <h1>No BOOKS SHOULD EVER LAY IDLE</h1>
         </div>
+        
+        
 
-        <div className="search-results-div">
+        <div className="home-page-bottom">
           <SearchResults />
         </div>
+
+        <div className="footer"></div>
       </div>
-    </div>
+    
   );
 };
 

@@ -24,7 +24,6 @@ function App() {
 
   return (
     <Router>
-      <div>
       { window.location.pathname === "/loggedIn/" ? <LoggedInNavigation /> : <Navigation />   }
         <Switch>
       <Route path="/" exact component={HomePage} />
@@ -33,10 +32,6 @@ function App() {
       <Route path="/loggedIn/" component={UserPage} />
       <Route path="/uploadbook/" component={BookUpload} />
       </Switch>
-
-
-        
-    </div>
     </Router>
   );
 }
