@@ -15,8 +15,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="main-app">
-        <Main />
         <NavigationBar />
+        <Main />
 
         <Switch>
           <Route path="/" component={BookUpload} exact />

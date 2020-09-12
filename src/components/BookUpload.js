@@ -142,5 +142,7 @@ const BookUpload = () => {
     </div>
   );
 };
+}
+
 
 export default BookUpload;
