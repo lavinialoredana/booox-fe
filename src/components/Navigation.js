@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "../App.css";
-import Button from "./Button";
-import Search from "./Search";
-import SearchResults from "./SearchResults";
+// import Button from "./Button";
+// import Search from "./Search";
+// import SearchResults from "./SearchResults";
 import justShareIt from "./fotos/justShareIt.PNG";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const Navigation = (props) => {
         <div className="logo-div">
           <Link to="/">
             {" "}
-            <img src={justShareIt} />
+            <img alt="" src={justShareIt} />
           </Link>
         </div>
         <div>
