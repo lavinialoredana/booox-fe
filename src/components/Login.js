@@ -56,31 +56,32 @@ const Login = ({ setAuth }) => {
 
         <form className="form" id="form" onSubmit={onSubmitForm}>
           <div className="form-control">
-            <label for="login-email">User Email</label>
+            <label htmlFor="login-email">User Email</label>
             <input
-              type="text"
+              type="email"
+              autoComplete="username"
               id="login-email"
               name="email"
               onChange={handleOnChange}
               value={formData.email}
               className="login-email"
-              placeholder="enter your email"
+              placeholder="Type email"
             />
             <i className="fas fa-check-circle" />
             <i className="fas fa-exclamation-circle" />
             <small>error message</small>
           </div>
           <div className="form-control">
-            <label for="login-password">Password</label>
+            <label htmlFor="login-password">Password</label>
             <input
-              type="text"
+              type="password"
               id="login-password"
               name="password"
               onChange={handleOnChange}
               value={formData.password}
               className="login-password"
-              placeholder="enter your password"
-              autocomplete="current-password"
+              placeholder="Enter Password"
+              autoComplete="current-password"
             />
             <i className="fas fa-check-circle" />
             <i className="fas fa-exclamation-circle" />

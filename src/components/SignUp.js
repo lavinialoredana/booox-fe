@@ -49,7 +49,7 @@ const SignUp = ({ setAuth }) => {
 
         <form className="form" id="form">
           <div className="form-control">
-            <level htmlFor="signup-name">Name</level>
+            <label htmlFor="signup-name">Name</label>
             <input
               type="text"
               id="signup-name"
@@ -63,7 +63,7 @@ const SignUp = ({ setAuth }) => {
             <small>error message</small>
           </div>
           <div className="form-control">
-            <level htmlFor="signup-email">Email</level>
+            <label htmlFor="signup-email">Email</label>
             <input
               type="email"
               id="signup-email"
@@ -71,14 +71,14 @@ const SignUp = ({ setAuth }) => {
               onChange={handleOnChange}
               value={formData.email}
               className="signup-email"
-              autocomplete="username"
+              autoComplete="username"
             />
             <i className="fas fa-check-circle" />
             <i className="fas fa-exclamation-circle" />
             <small>error message</small>
           </div>
           <div className="form-control">
-            <level htmlFor="signup-password">Password</level>
+            <label htmlFor="signup-password">Password</label>
             <input
               type="password"
               id="signup-password"
@@ -86,7 +86,7 @@ const SignUp = ({ setAuth }) => {
               onChange={handleOnChange}
               value={formData.password}
               className="signup-password"
-              autocomplete="new-password"
+              autoComplete="new-password"
             />
             <i className="fas fa-check-circle" />
             <i className="fas fa-exclamation-circle" />
