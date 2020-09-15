@@ -16,6 +16,15 @@ html {
   padding: 0;
 }
 
+h1{
+  font-size: 50px;
+  color: rgb(28, 71, 28);
+}
+
+h2{
+  font-size: 36px;
+}
+
 body {
   background-color: rgb(244, 244, 244);
   color: #333;
@@ -39,7 +48,7 @@ a {
   background-image: url("./components/fotos/cover.jpg");
   background-position: top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   justify-content: flex-start ;
 
 
@@ -67,6 +76,12 @@ a {
   display: flex;
   background: transparent;
   width: 100%;
+}
+.loggedin-navigation{
+  display: flex;
+  background: transparent;
+  width: 100%;
+  height: fit-content;
 }
 
 .navigation .container {
@@ -127,7 +142,6 @@ a {
 }
 
 .home-page-up{
-  height: 300px;
   width: inherit;
   display: flex;
   flex-direction: column;
@@ -274,6 +288,7 @@ text-align: left;
 .user-page-left{
   flex-basis: 20%;
   background-color: rgb(121, 121, 184);
+  text-align: center;
 }
 
 .user-page-right{
@@ -288,17 +303,20 @@ text-align: left;
   font-size: 1em;
 }
 
-.login-register-body{
+.login-register-body-show{
   background-color: rgb(150, 148, 53);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: fit-content;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-image: url(./components/fotos/logincover.svg);
   background-position: left ;
 
+}
+.login-register-body-hide{
+  display: none;
 }
 
 .login-register-container{

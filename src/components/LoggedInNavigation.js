@@ -11,12 +11,27 @@ import {Link } from "react-router-dom";
 
 const LoggedInNavigation = (props) =>{
 
+    const logout = (e) => {
+        e.preventDefault();
+        props.logoutfunction(false)
+    }
+
     return (
         
         <div className="navigation">
-            <div className="logo-div"><Link to="/"> <img src={justShareIt} /></Link></div>
-            <h1>Welcome : USER_1 </h1>
-            
+           <div className="container">
+        <div className="logo-div">
+          <Link to="/">
+            {" "}
+            <img src={justShareIt} />
+          </Link>
+        </div>
+        <div>
+          <button className="login" onClick={(e) => logout(e)}>
+            <Link to="/login">Logout</Link>
+          </button>
+        </div>
+      </div>
         </div>
     )
 }

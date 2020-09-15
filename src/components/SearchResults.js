@@ -10,6 +10,12 @@ const SearchResults = () => {
 
   const [renderOnDelete, setRenderOnDelete] = useState(false);
 
+
+  const [comment, setComment] = useState("");
+  const handleOnChange = (event) => {
+    setComment(event.target.value);
+  }
+
   
 
 
@@ -71,7 +77,18 @@ const SearchResults = () => {
             <div><b>Subtitle :</b>{any.subtitle}</div>
             <div><b>Language:</b> {any.language}</div>
             <div><b>ISBN :</b>{any.isbn}</div>
-          </div>
+            <div>{comment}</div>
+
+            <form>
+              <input
+              type="text"
+              id="book-title"
+              name="title"
+              onChange={handleOnChange}
+              value={comment}></input>
+              <button >comment</button>
+            </form>
+          </div>  
         );
       });
     }

@@ -5,14 +5,13 @@ import Button from './Button';
 
 
 
-const SignUp = () => {
+const SignUp = ({setAuth}) => {
 
 
 const [formData, setFormData] = useState({
-    id: "",
-    firstName: "",
-    lastName: "",
-    email: ""
+    name: "",
+    email: "",
+    password: ""
 });
 
 const handleOnChange = event => {
@@ -26,21 +25,31 @@ const handleOnChange = event => {
 
 }
 
+const {email, password, name } = formData;
 
+const onSubmitForm = async (e) => {
+    e.preventDefault();
+    try {
+const body = {name, email, password}
 
-const [reRender, setReRender] = useState('enable')
-const handleSubmit = (event) => {
-    if (reRender === 'enable'){
-             setReRender('disable')
+        const response = await fetch ("http://localhost:3001/auth/register", {
+            method: "POST",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify(body)
+        })
+
+        const   parseRes = await response.json();
+        localStorage.setItem("token", parseRes.token);
+
+        
+        setAuth(true)
+    } catch (err) {
+        console.error(err);
+
+        
     }
+}
 
-    else{
-        setReRender('enable')
-    }
-  };
-console.log(formData.firstName);
-console.log(formData.lastName);
-console.log(formData.email);
 
 
 
@@ -51,19 +60,9 @@ const initialValue = {
 
 }
 
-const [fetchedData, setFetchedData] = useState([])
-console.log(fetchedData);
+//calling htmlFor the jwt token
 
 
-
-
-console.log('rerender', reRender);
-
-// function fetchData () {
-
-
-
-// }
 
 
     return (
@@ -74,42 +73,42 @@ console.log('rerender', reRender);
                         <h1>Sign-Up</h1>
                     </div>
         
-        <form className="form" id="form">
+        <form className="form" id="form" onSubmit={onSubmitForm}>
             <div className="form-control">
-                <level for="signup-name">Name</level>
-                <input type='text' id="signup-name"/>
+                <level htmlFor="signup-name">Name</level>
+                <input type='text' id="signup-name" name="name" onChange={handleOnChange} value={formData.name} className="signup-name"/>
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
                 <small>error message</small>
             </div>
             <div className="form-control">
-                <level for="signup-surname">Surname</level>
-                <input type='text' id="signup-surname" />
+                <level htmlFor="signup-email">Email</level>
+                <input type='email' id="signup-email" name="email" onChange={handleOnChange} value={formData.email} className="signup-email"/>
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
                 <small>error message</small>
             </div>
             <div className="form-control">
-                <level for="signup-address">Address</level>
-                <input type='text'  id="signup-address" />
+                <level htmlFor="signup-password">Password</level>
+                <input type='password' id="signup-password" name="password" onChange={handleOnChange} value={formData.password} className="signup-password" />
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
                 <small>error message</small>
             </div>
-            <div className="form-control">
-                <level for="signup-username">Username</level>
+            {/* <div className="form-control">
+                <level htmlFor="signup-username">Username</level>
                 <input type='text' id="signup-username"/>
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
                 <small>error message</small>
             </div>
             <div className="form-control">
-                <level for="signup-password">Password</level>
+                <level htmlFor="signup-password">Password</level>
                 <input type='text' id="signup-password" />
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
                 <small>error message</small>
-            </div>
+            </div> */}
             <button>Register</button>
       </form>
                     
