@@ -23,11 +23,15 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
-  background: #603813; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #603813, #b29f94); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #603813, #b29f94); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-} 
+  -moz-osx-font-smoothing: grayscale;
+  background: #603813;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #603813, #b29f94);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #603813, #b29f94);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 a {
   text-decoration: none;
 }
@@ -40,7 +44,7 @@ a {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  justify-content: flex-start ;
+  justify-content: flex-start;
 
 
   /* display: flex;
@@ -123,10 +127,10 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
- 
+
 }
 
-.home-page-up{
+.home-page-up {
   height: 300px;
   width: inherit;
   display: flex;
@@ -134,18 +138,19 @@ a {
   justify-content: center;
   align-items: center;
 }
-.home-page-up h1{
+
+.home-page-up h1 {
   font-size: 55px;
   color: #b9bd8a;
 }
 
-.home-page-bottom{
+.home-page-bottom {
   min-height: 300px;
   width: inherit;
   padding: 10px 0px;
 }
 
-.search-results{
+.search-results {
   width: 100%;
   position: relative;
 
@@ -162,7 +167,7 @@ a {
 
 .home-page div {
   position: relative;
-  text-align: left
+  text-align: center;
 }
 
 .btn-borrow,
@@ -189,7 +194,7 @@ a {
 }
 
 /*search results*/
-.search-results-display{
+.search-results-display {
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -211,23 +216,24 @@ a {
   box-shadow: 2px 2px 10px rgb(73, 72, 72);
 
 }
-.single-book-details div{
+
+.single-book-details div {
   border-bottom: 1px solid grey;
   padding: 5px;
 }
 
-.single-book-details:hover{
+.single-book-details:hover {
   background: white;
   box-shadow: inset 6px 10px 60px rgb(3, 3, 3);
   transform: scale(1.08);
 }
 
-.book-delete-button{
+.book-delete-button {
   position: absolute;
   width: 30px;
   height: 30px;
-  top:5px;
-  right:5px;
+  top: 5px;
+  right: 5px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -238,13 +244,13 @@ a {
 
 
 
-.book-delete-button:hover{
+.book-delete-button:hover {
   background-color: rgb(253, 0, 0);
   cursor: pointer;
 }
 
 
-.search{
+.search {
   position: absolute;
   top: 30px;
 
@@ -255,15 +261,15 @@ a {
 }
 
 
-.search-results p{
-margin-top:30px;
-text-align: left;
+.search-results p {
+  margin-top: 30px;
+  text-align: left;
 
 }
 
 /*USER PAGE................................................................................*/
 
-.user-page{
+.user-page {
   width: 100%;
   min-height: 800px;
   background-color: rgba(0, 0, 0, 0.356);
@@ -271,24 +277,24 @@ text-align: left;
   flex-direction: row;
 }
 
-.user-page-left{
+.user-page-left {
   flex-basis: 20%;
   background-color: rgb(121, 121, 184);
 }
 
-.user-page-right{
+.user-page-right {
   flex-basis: 80%;
 
 
 }
 
 /* login......................................................*/
-*{
+* {
   box-sizing: border-box;
   font-size: 1em;
 }
 
-.login-register-body{
+.login-register-body {
   background-color: rgb(150, 148, 53);
   display: flex;
   align-items: center;
@@ -297,11 +303,11 @@ text-align: left;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-image: url(./components/fotos/logincover.svg);
-  background-position: left ;
+  background-position: left;
 
 }
 
-.login-register-container{
+.login-register-container {
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   width: 350px;
@@ -309,74 +315,86 @@ text-align: left;
   overflow: hidden;
   box-shadow: 1px 1px 20px rgb(119, 53, 53);
 }
-.login-register-header{
+
+.login-register-header {
   background-color: rgb(159, 216, 137);
   text-align: center;
   padding: 10px 40px;
 }
-.header p{
+
+.header p {
   font-size: 0.7rem;
-} 
-.header h1{
+}
+
+.header h1 {
   margin: 0;
   font-size: 1.5rem;
 }
-.form{
+
+.form {
   padding: 20px 30px;
 }
-.form-control{
+
+.form-control {
   margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
 }
-.form-control label{
+
+.form-control label {
   display: block;
   margin-bottom: 5px;
 
 }
-.form-control input{
+
+.form-control input {
   border: 1px solid rgb(65, 27, 233);
   border-radius: 2px;
   display: block;
   font-size: 1.5rem;
   width: 100%;
 }
-.form-control.success input{
+
+.form-control.success input {
   border-color: rgb(140, 224, 224);
 }
-.form-control.error input{
-  border: 2px solid red ;
+
+.form-control.error input {
+  border: 2px solid red;
 }
-.form-control i{
+
+.form-control i {
   position: absolute;
   top: 30px;
   right: 25px;
   visibility: hidden;
 
 }
-.form-control.success i.fa-check-circle{
-  color:green;
+
+.form-control.success i.fa-check-circle {
+  color: green;
   visibility: visible;
 }
 
-.form-control.error i.fa-exclamation-circle{
-  color:red;
+.form-control.error i.fa-exclamation-circle {
+  color: red;
   visibility: visible;
 }
 
 
-.form-control small{
+.form-control small {
   visibility: hidden;
   position: absolute;
   bottom: 0px;
-  left:0px;
+  left: 0px;
 }
-.form-control.error small{
-  color:red;
+
+.form-control.error small {
+  color: red;
   visibility: visible;
 }
 
-.form button{
+.form button {
   background-color: rgb(161, 102, 168);
   border: 2px solid green;
   border-radius: 3px;
@@ -387,7 +405,8 @@ text-align: left;
   padding: 6px;
   width: 100%;
 }
-.form button:hover{
+
+.form button:hover {
   background-color: rgb(28, 100, 124);
 }
 
@@ -400,7 +419,7 @@ text-align: left;
 }
 
 /*book upload*/
-.book-form-div{
+.book-form-div {
   display: flex;
   width: 100%;
   height: 60vh;
@@ -410,7 +429,7 @@ text-align: left;
 }
 
 /* homepage search */
-.search-form{
+.search-form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -418,8 +437,9 @@ text-align: left;
   justify-content: center;
 
 }
-.form-wrapper{
-  width:fit-content;
+
+.form-wrapper {
+  width: fit-content;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -428,88 +448,92 @@ text-align: left;
   top: 0px;
   left: 0;
   right: 0;
-  margin:auto;
-  
+  margin: auto;
+
 
 }
 
-.bar:focus-within{
+.bar:focus-within {
   box-shadow: 1px 1px 8px 1px #dcdcdc;
-  outline:none;
+  outline: none;
 }
-.searchbar{
-  border:none;
-  width:500px;
-  font-size:16px;
+
+.searchbar {
+  border: none;
+  width: 500px;
+  font-size: 16px;
   outline: none;
   margin: 0 auto;
-  border-radius:30px;
-  border:1px solid #2c2828;
+  border-radius: 30px;
+  border: 1px solid #2c2828;
   background-color: rgba(34, 29, 29, 0.575);
   display: flex;
   flex-direction: row;
 
-  
+
 }
-.searchbar-input{
-    height:45px;
-    border:none;
-    width:80%;
-    font-size:16px;
-    outline: none;
-    margin: 0 auto;
-    display: block;
-    background-color: unset ;
-    color: rgb(247, 247, 247);
-    flex-basis: 80%;
-    justify-content: center;
-    align-items: center;
-    
+
+.searchbar-input {
+  height: 45px;
+  border: none;
+  width: 80%;
+  font-size: 16px;
+  outline: none;
+  margin: 0 auto;
+  display: block;
+  background-color: unset;
+  color: rgb(247, 247, 247);
+  flex-basis: 80%;
+  justify-content: center;
+  align-items: center;
+
 }
-.searchbar:hover{
+
+.searchbar:hover {
   box-shadow: 1px 1px 8px 1px #423f3f;
 }
-.search-image-div{
+
+.search-image-div {
   flex-basis: 10%;
   position: relative;
 }
-.voice{
+
+.voice {
   position: absolute;
-  height:20px;
-  top:25%;
-  left:20%;
+  height: 20px;
+  top: 25%;
+  left: 20%;
 }
-.buttons{
-  margin-top:30px;
+
+.buttons {
+  margin-top: 30px;
 }
-.button{
+
+.button {
   background-color: #e9ece8de;
-  border:none;
-  color:#050505;
-  font-size:15px;
+  border: none;
+  color: #050505;
+  font-size: 15px;
   padding: 10px 20px;
-  margin:5px;
-  border-radius:4px;
-  outline:none;
+  margin: 5px;
+  border-radius: 4px;
+  outline: none;
 }
-.button:hover{
+
+.button:hover {
   border: 1px solid #5c9c37;
   padding: 9px 19px;
-  color:#1f1919;
+  color: #1f1919;
   background-color: rgb(100, 121, 98);
 }
-.button:focus{
-  border:1px solid #4885ed;
+
+.button:focus {
+  border: 1px solid #4885ed;
   padding: 9px 19px;
 }
 
-.footer{
+.footer {
   width: 100%;
   background-color: violet;
   mex-height: 200px;
 }
-
-
-
-
-
