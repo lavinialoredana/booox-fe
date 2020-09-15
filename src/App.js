@@ -50,7 +50,7 @@ const setAuth = (boolean) => {
 
   return (
     <Router>
-      { isAuthenticated ? <LoggedInNavigation logoutfunction={setIsAuthenticated} /> : <Navigation />   }
+      { isAuthenticated ? <LoggedInNavigation logoutfunction={setAuth} /> : <Navigation />   }
         <Switch>
       <Route exact path="/login" render={props => !isAuthenticated ? <Login {...props} setAuth={setAuth} />  : <Redirect to="/userprofile" />   } />
       <Route exact path="/" component={HomePage} />
