@@ -28,10 +28,9 @@ const Login = ({ setAuth }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-
+      //Returning token
       const parseRes = await response.json();
-      localStorage.setItem("token", parseRes.token);
-      console.log(parseRes);
+      sessionStorage.setItem("token", parseRes.token);
 
       if (parseRes.token) {
         setAuth(true);

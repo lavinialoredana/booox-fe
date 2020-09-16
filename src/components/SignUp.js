@@ -30,7 +30,7 @@ const SignUp = ({ setAuth }) => {
       });
 
       const parseRes = await response.json();
-      localStorage.setItem("token", parseRes.token);
+      sessionStorage.setItem("token", parseRes.token);
 
       setAuth(true);
     } catch (err) {

@@ -8,7 +8,7 @@ const LoggedInNavigation = (props) => {
   const logout = (e) => {
     e.preventDefault();
     props.logoutfunction(false);
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
   };
 
   return (

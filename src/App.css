@@ -1,9 +1,9 @@
 :root {
-  --main-dark-color: #1B1811;
-  --main-light-color: #F8F8FF;
-  --light-blue: #97DFFC;
-  --dark-blue: #02044F;
-  --main-red: #FF1654;
+  --main-dark-color: #1b1811;
+  --main-light-color: #f8f8ff;
+  --light-blue: #97dffc;
+  --dark-blue: #02044f;
+  --main-red: #ff1654;
 }
 
 html {
@@ -19,8 +19,8 @@ html {
 body {
   background-color: rgb(244, 244, 244);
   color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,7 +45,6 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: flex-start;
-
 
   /* display: flex;
   flex-direction: column; 
@@ -119,7 +118,6 @@ a {
   background-color: var(--main-light-color);
 }
 
-
 .home-page {
   width: 100%;
   min-height: 100vh;
@@ -127,7 +125,6 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
 }
 
 .home-page-up {
@@ -153,17 +150,14 @@ a {
 .search-results {
   width: 100%;
   position: relative;
-
 }
 
 .title {
   font-size: 7rem;
-  text-shadow: 3px 3px #F8F8FF;
+  text-shadow: 3px 3px #f8f8ff;
   text-align: center;
   margin-bottom: 2rem;
 }
-
-
 
 .home-page div {
   position: relative;
@@ -201,7 +195,6 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
 }
 
 .single-book-details {
@@ -214,7 +207,6 @@ a {
   background-color: rgba(227, 225, 230, 0.932);
   position: relative;
   box-shadow: 2px 2px 10px rgb(73, 72, 72);
-
 }
 
 .single-book-details div {
@@ -241,30 +233,23 @@ a {
   background-color: rgb(219, 200, 200);
 }
 
-
-
-
 .book-delete-button:hover {
   background-color: rgb(253, 0, 0);
   cursor: pointer;
 }
 
-
 .search {
   position: absolute;
   top: 30px;
-
 }
 
 .homepage-right {
   margin-top: 80px;
 }
 
-
 .search-results p {
   margin-top: 30px;
   text-align: left;
-
 }
 
 /*USER PAGE................................................................................*/
@@ -284,8 +269,6 @@ a {
 
 .user-page-right {
   flex-basis: 80%;
-
-
 }
 
 /* login......................................................*/
@@ -301,10 +284,9 @@ a {
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-image: url(./components/fotos/logincover.svg);
   background-position: left;
-
 }
 
 .login-register-container {
@@ -344,7 +326,6 @@ a {
 .form-control label {
   display: block;
   margin-bottom: 5px;
-
 }
 
 .form-control input {
@@ -368,7 +349,6 @@ a {
   top: 30px;
   right: 25px;
   visibility: hidden;
-
 }
 
 .form-control.success i.fa-check-circle {
@@ -380,7 +360,6 @@ a {
   color: red;
   visibility: visible;
 }
-
 
 .form-control small {
   visibility: hidden;
@@ -400,7 +379,7 @@ a {
   border-radius: 3px;
   color: white;
   display: block;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
 
   padding: 6px;
   width: 100%;
@@ -415,7 +394,6 @@ a {
   font-size: 2rem;
   color: rgb(19, 206, 28);
   font-weight: bolder;
-
 }
 
 /*book upload*/
@@ -428,6 +406,13 @@ a {
   flex-direction: column;
 }
 
+.book-upload-form {
+}
+
+input[type="text"] {
+  padding: 3px 10px 3px 10px;
+}
+
 /* homepage search */
 .search-form {
   width: 100%;
@@ -435,7 +420,6 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 .form-wrapper {
@@ -449,8 +433,6 @@ a {
   left: 0;
   right: 0;
   margin: auto;
-
-
 }
 
 .bar:focus-within {
@@ -469,8 +451,6 @@ a {
   background-color: rgba(34, 29, 29, 0.575);
   display: flex;
   flex-direction: row;
-
-
 }
 
 .searchbar-input {
@@ -486,7 +466,6 @@ a {
   flex-basis: 80%;
   justify-content: center;
   align-items: center;
-
 }
 
 .searchbar:hover {
@@ -535,5 +514,37 @@ a {
 .footer {
   width: 100%;
   background-color: violet;
-  mex-height: 200px;
+  max-height: 200px;
 }
+
+/* input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+} */
+
+/* div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+} */

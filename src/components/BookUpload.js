@@ -49,7 +49,7 @@ const BookUpload = () => {
 
   return (
     <div className="book-form-div">
-      <div>BOOK UPLOAD FORM</div>
+      <h2>BOOK UPLOAD FORM</h2>
       <form
         className="book-upload-form"
         // action="/book"
