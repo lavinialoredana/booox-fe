@@ -52,11 +52,11 @@ const setAuth = (boolean) => {
     <Router>
       { isAuthenticated ? <LoggedInNavigation logoutfunction={setAuth} /> : <Navigation />   }
         <Switch>
-      <Route exact path="/login" render={props => !isAuthenticated ? <Login {...props} setAuth={setAuth} />  : <Redirect to="/userprofile" />   } />
+      <Route path="/login" render={props => !isAuthenticated ? <Login {...props} setAuth={setAuth} />  : <Redirect to="/userprofile" />   } />
       <Route exact path="/" component={HomePage} />
       <Route exact path="/signup" render={props => !isAuthenticated ? <SignUp {...props} setAuth={setAuth} /> : <Redirect to="/userprofile" /> } />
       
-      <Route exact path="/userprofile" render={props => isAuthenticated ? <UserPage {...props} setAuth={setAuth} /> : <Redirect to="/login" /> } />
+      <Route exact path="/userprofile" render={props => isAuthenticated ? <UserPage {...props} setAuth={setAuth} /> : <Redirect to="/" /> } />
       
       </Switch>
     </Router>

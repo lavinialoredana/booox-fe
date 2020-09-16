@@ -25,7 +25,7 @@ const Delete = (props) =>{
 
 
 
-    return <div className="book-delete-button"  onClick={ () => {deleteFunction(props.idToDelete)}}>X</div> 
+    return <div className="book-delete-button"  onClick={ () => {deleteFunction(props.idToDelete)}}>Delete Post</div> 
 }
 
 export default Delete;

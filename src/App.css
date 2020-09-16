@@ -43,9 +43,11 @@ a {
 
 #root {
   width: 100%;
+  min-height: 100vh;
   padding: 0;
   margin: 0px;
-  background-image: url("./components/fotos/cover.jpg");
+  background-color: #5cab95;
+  background-image: url(./components/fotos/book_PNG51099.png);
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -143,6 +145,7 @@ a {
 
 .home-page-up{
   width: inherit;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -150,7 +153,7 @@ a {
 }
 .home-page-up h1{
   font-size: 55px;
-  color: #b9bd8a;
+  color: #4b539b;
 }
 
 .home-page-bottom{
@@ -214,7 +217,7 @@ a {
 }
 
 .single-book-details {
-  flex-basis: 30%;
+  flex-basis: 40%;
   min-height: 160px;
   padding: 5px 20px;
   margin: 10px;
@@ -225,6 +228,11 @@ a {
   box-shadow: 2px 2px 10px rgb(73, 72, 72);
 
 }
+ @media screen and (max-width: 500px) {
+  .single-book-details {
+    flex-basis: 100%;
+  }
+} 
 .single-book-details div{
   border-bottom: 1px solid grey;
   padding: 5px;
@@ -303,21 +311,21 @@ text-align: left;
   font-size: 1em;
 }
 
-.login-register-body-show{
-  background-color: rgb(150, 148, 53);
+.login-register-body{
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   height: fit-content;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-image: url(./components/fotos/logincover.svg);
   background-position: left ;
 
 }
 .login-register-body-hide{
   display: none;
 }
+
 
 .login-register-container{
   background-color: rgb(255, 255, 255);
@@ -437,7 +445,7 @@ text-align: left;
 
 }
 .form-wrapper{
-  width:fit-content;
+  width:100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -457,7 +465,8 @@ text-align: left;
 }
 .searchbar{
   border:none;
-  width:500px;
+  width:60%;
+  min-width: 200px;
   font-size:16px;
   outline: none;
   margin: 0 auto;
@@ -466,11 +475,12 @@ text-align: left;
   background-color: rgba(34, 29, 29, 0.575);
   display: flex;
   flex-direction: row;
+  padding: 0 10px;
 
   
 }
 .searchbar-input{
-    height:45px;
+    height:40px;
     border:none;
     width:80%;
     font-size:16px;
@@ -494,7 +504,7 @@ text-align: left;
 .voice{
   position: absolute;
   height:20px;
-  top:25%;
+  top:32%;
   left:20%;
 }
 .buttons{

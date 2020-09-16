@@ -1,8 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 // import Button from "./Button";
 
 const BookUpload = () => {
+
+  const [userDetails, setUserDetails] = useState([]);
+
+
+  const getDetails =async  () => {
+      try {
+          const response = await fetch("/userpage", {
+              method : "GET",
+              headers: {token: localStorage.token}
+          })
+
+          const parseRes = await  response.json();
+          setUserDetails(parseRes);
+          console.log("from bookupload", parseRes);
+          
+      } catch (error) {
+          console.error(error);
+      }
+  }
+
+  useEffect(() => {
+      getDetails()
+  }, [])
+
+
 
   const [formData, setFormData] = useState({
     title: "",

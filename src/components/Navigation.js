@@ -12,7 +12,6 @@ const Navigation = (props) => {
       <div className="container">
         <div className="logo-div">
           <Link to="/">
-            {" "}
             <img src={justShareIt} />
           </Link>
         </div>

@@ -26,7 +26,9 @@ const LoggedInNavigation = (props) =>{
             <img src={justShareIt} />
           </Link>
         </div>
+        
         <div>
+           <Link to="/userprofile"> <button className="login">User Page</button> </Link>
           <button className="login" onClick={(e) => logout(e)}>
               logout
           </button>

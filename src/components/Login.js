@@ -5,6 +5,9 @@ import {Link } from 'react-router-dom';
 
 const Login = ({setAuth}) => {
 
+    const [emailvalidation, setEmailValidation] = useState("");
+    const [passwordValidation, setPasswordValidation] = useState("");
+
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -35,8 +38,16 @@ const Login = ({setAuth}) => {
             })
     
             const   parseRes = await response.json();
-            localStorage.setItem("token", parseRes.token);
-            console.log(parseRes);
+            if (parseRes === "Invalid Credentials!" | parseRes ==="Invalid Email" | parseRes ==="Missing Credentials" ){
+                    setEmailValidation(parseRes);
+            }
+            if ( parseRes === "Missing Credentials" || parseRes === "Invalid Password!" || parseRes === "Invalid Credentials!" ){
+                setPasswordValidation(parseRes);
+            }else setPasswordValidation("");
+
+
+            localStorage.setItem("token", parseRes.token);  
+            console.log("incase of invalid ", parseRes);
 
             if(parseRes.token){
                 setAuth(true)
@@ -69,19 +80,19 @@ const Login = ({setAuth}) => {
             </div>
         
         <form className="form" id="form" onSubmit={onSubmitForm}>
-            <div className="form-control">
+            <div className={emailvalidation ? "form-control error" : "form-control"}>
                 <level for="login-email">User Email</level>
                 <input type='text' id="login-email" name="email" onChange={handleOnChange} value={formData.email} className="login-email" placeholder="enter your email"/>
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
-                <small>error message</small>
+                <small>{emailvalidation}</small>
             </div>
-            <div className="form-control">
+            <div className={passwordValidation ? "form-control error" : "form-control"}>
                 <level for="login-password">Password</level>
-                <input type='text' id="login-password" name="password" onChange={handleOnChange} value={formData.password} className="login-password" placeholder="enter your password"/>
+                <input type='password' id="login-password" name="password" onChange={handleOnChange} value={formData.password} className="login-password" placeholder="enter your password"/>
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
-                <small>error message</small>
+                <small>{passwordValidation}</small>
             </div>
             <button>Login</button>
 
