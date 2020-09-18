@@ -6,6 +6,10 @@ import "../App.css";
 import BookUpload from "./BookUpload";
 
 const UserPage = (props) => {
+  const username = sessionStorage.getItem("token");
+  // console.log(username);
+  console.log(JSON.parse(atob(username.split(".")[1])));
+
   return (
     <div className="user-page">
       <div className="user-page-left"></div>

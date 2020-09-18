@@ -6,19 +6,15 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-
-// import BookUpload from "./components/BookUpload";
-// import Page2 from "./components/Page2";
-// import Page3 from "./components/Page3";
-// import NavigationBar from "./components/NavigationBar";
-// import SearchResults from "./components/SearchResults";
-
+// import { Menu } from 'semantic-ui-react'
 import HomePage from "./components/HomePage";
-import Navigation from "./components/Navigation";
+// import Navigation from "./components/Navigation";
 import Login from "../src/components/Login";
 import SignUp from "../src/components/SignUp";
-import LoggedInNavigation from "./components/LoggedInNavigation";
+// import LoggedInNavigation from "./components/LoggedInNavigation";
 import UserPage from "./components/UserPage";
+import NavBar from "./components/NavBar";
+import LoginNav from "./components/LoginNav";
 
 function App() {
   const checkAuthenticated = async () => {
@@ -29,7 +25,6 @@ function App() {
       });
 
       const parseRes = await res.json();
-
       parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
     } catch (err) {
       console.error(err.message);
@@ -48,11 +43,8 @@ function App() {
 
   return (
     <Router>
-      {isAuthenticated ? (
-        <LoggedInNavigation logoutfunction={setAuth} />
-      ) : (
-        <Navigation />
-      )}
+      {isAuthenticated ? <LoginNav logoutfunction={setAuth} /> : <NavBar />}
+
       <Switch>
         <Route
           exact

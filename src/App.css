@@ -40,13 +40,13 @@ a {
   width: 100%;
   padding: 0;
   margin: 0px;
-  background-image: url("./components/fotos/cover.jpg");
+  justify-content: flex-start;
+
+  /* background-image: url("./components/fotos/cover.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  justify-content: flex-start;
-
-  /* display: flex;
+  display: flex;
   flex-direction: column; 
   align-items: center;
   justify-content: center;  */
