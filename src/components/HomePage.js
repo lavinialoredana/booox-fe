@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-// import Navigation from "./Navigation";
+//import Navigation from "./Navigation";
 import SearchResults from "./SearchResults";
 import searchIcon from "./fotos/search.png";
 

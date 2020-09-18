@@ -18,7 +18,7 @@ const Navigation = (props) => {
         </div>
         <div>
           <button className="register">
-            <Link to="signup">SignUp</Link>
+            <Link to="signup">Sign Up</Link>
           </button>
 
           <button className="login">

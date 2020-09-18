@@ -40,12 +40,6 @@ const Login = ({ setAuth }) => {
     }
   };
 
-  // const initialValue = {
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  // };
-
   return (
     <div className="login-register-body">
       <div className="login-register-container">
