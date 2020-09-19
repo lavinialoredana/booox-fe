@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import Button from "./Button";
+// import Button from "./Button";
 
 const BookUpload = () => {
   const [formData, setFormData] = useState({
@@ -15,16 +15,40 @@ const BookUpload = () => {
 
   const handleOnChange = (event) => {
     const updateFormData = {
-      formData,
+      ...formData,
       [event.target.name]: event.target.value,
     };
     setFormData(updateFormData);
   };
 
+  const handleSubmit = async (event) => {
+    const token = sessionStorage.getItem("token");
+    await fetch("http://localhost:3001/book", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        token: "Bearer " + token,
+      },
+      // We convert the React state to JSON and send it as the POST body
+      body: JSON.stringify(formData),
+    }).then(function (response) {
+      console.log(response);
+      console.log(response.json());
+    });
+
+    event.preventDefault();
+  };
+
   return (
     <div className="book-form-div">
-      <h2>Upload your book</h2>
-      <form className="book-upload-form" action="/book" method="POST">
+      <h2>BOOK UPLOAD FORM</h2>
+      <form
+        className="book-upload-form"
+        // action="/book"
+        // method="POST"
+        onSubmit={handleSubmit}
+      >
         <div>
           <label htmlFor="book-title">Book title</label>
           <input
@@ -32,73 +56,85 @@ const BookUpload = () => {
             id="book-title"
             name="title"
             onChange={handleOnChange}
-            value={formData.title || ""}
+            value={formData.title}
           />
         </div>
 
         <div>
-          <label htmlFor="author">Author </label>
+          <label className="label-top" htmlFor="author">
+            Author{" "}
+          </label>
           <input
             type="text"
             name="author"
             id="author"
             onChange={handleOnChange}
-            value={formData.author || ""}
+            value={formData.author}
           />
         </div>
 
         <div>
-          <label htmlFor="publisher">Publisher</label>
+          <label className="label-top" htmlFor="publisher">
+            Publisher
+          </label>
           <input
             type="text"
             name="publisher"
             id="publisher"
             onChange={handleOnChange}
-            value={formData.publisher || ""}
+            value={formData.publisher}
           />
         </div>
 
         <div>
-          <label htmlFor="publish-date">Publish Date</label>
+          <label className="label-top" htmlFor="publish-date">
+            Publish Date
+          </label>
           <input
             type="date"
             name="published_date"
             id="publish-date"
             onChange={handleOnChange}
-            value={formData.published_date || ""}
+            value={formData.published_date}
           />
         </div>
 
         <div>
-          <label htmlFor="isbn">ISBN</label>
+          <label className="label-top" htmlFor="isbn">
+            ISBN
+          </label>
           <input
             type="text"
             name="isbn"
             id="isbn"
             onChange={handleOnChange}
-            value={formData.isbn || ""}
+            value={formData.isbn}
           />
         </div>
 
         <div>
-          <label htmlFor="subtitle">Subtitle</label>
+          <label className="label-top" htmlFor="subtitle">
+            Subtitle
+          </label>
           <input
             type="text"
             name="subtitle"
-            id="ubtitle"
+            id="subtitle"
             onChange={handleOnChange}
-            value={formData.subtitle || ""}
+            value={formData.subtitle}
           />
         </div>
 
         <div>
-          <label htmlFor="language">Language</label>
+          <label className="label-top" htmlFor="language">
+            Language
+          </label>
           <input
             type="text"
             name="language"
             id="language"
             onChange={handleOnChange}
-            value={formData.language || ""}
+            value={formData.language}
           />
         </div>
 
@@ -115,7 +151,8 @@ const BookUpload = () => {
         <input type="checkbox" name="Vintage" id="book-state-vintage" />
         </div> */}
 
-        <Button buttonName="Submit" />
+        {/* <Button buttonName="Submit" /> */}
+        <button className="button-normal">Submit</button>
       </form>
     </div>
   );
