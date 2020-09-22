@@ -4,30 +4,36 @@ import "../App.css";
 
 const BookUpload = () => {
 
-  const [userDetails, setUserDetails] = useState([]);
+  const [loggedInUserId , setLoggedInUserId ] = useState({
+    user_id : "",
+    book_id : ""
+  });
 
+console.log(loggedInUserId);
 
   const getDetails =async  () => {
-      try {
-          const response = await fetch("/userpage", {
-              method : "GET",
-              headers: {token: localStorage.token}
+    try {
+        const response = await fetch("/bookupload", {
+            method : "GET",
+            headers: {token: localStorage.token}
+        })
+
+        const parseRes = await response.json();
+          setLoggedInUserId({
+            user_id : parseRes.user_id,
+            book_id : ""
           })
+          console.log(parseRes);
+        
+        
+    } catch (error) {
+        console.error(error);
+    }
+}
 
-          const parseRes = await  response.json();
-          setUserDetails(parseRes);
-          console.log("from bookupload", parseRes);
-          
-      } catch (error) {
-          console.error(error);
-      }
-  }
-
-  useEffect(() => {
-      getDetails()
-  }, [])
-
-
+useEffect(() => {
+    getDetails()
+}, [])
 
   const [formData, setFormData] = useState({
     title: "",
@@ -36,19 +42,19 @@ const BookUpload = () => {
     published_date: "",
     isbn: "",
     subtitle: "",
-    language: "",
+    language: ""
 
   });
 
-  // const initialForm = {
-  //   title: "",
-  //   author: "",
-  //   publisher: "",
-  //   published_date: "2020-01-01",
-  //   isbn: "",
-  //   subtitle: "",
-  //   language: "",
-  // };
+  const initialForm = {
+    title: "",
+    author: "",
+    publisher: "",
+    published_date: "",
+    isbn: "",
+    subtitle: "",
+    language: ""
+  };
 
   const handleOnChange = (event) => {
     const updateFormData = {
@@ -59,6 +65,7 @@ const BookUpload = () => {
   }
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     await fetch("http://localhost:3001/book", {
       method: "POST",
       headers: {
@@ -66,13 +73,31 @@ const BookUpload = () => {
       },
       // We convert the React state to JSON and send it as the POST body
       body: JSON.stringify(formData),
-    }).then(function (response) {
-      console.log(response);
-      console.log(response.json());
-    });
+    }).then(response => response.json())
+    .then((data) => 
+      { setLoggedInUserId({
+        user_id : loggedInUserId.user_id,
+        book_id : data.id
+      })
+        fetch("http://localhost:3001/usersvsbooks", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // We convert the React state to JSON and send it as the POST body
+          body: JSON.stringify(loggedInUserId),
+        }).then( error => console.log(error))
+      
+      })
 
-    event.preventDefault();
+
+//posting into books_vs_users table 
+    setFormData(initialForm);
+    
+
+    
   };
+
 
   return (
     

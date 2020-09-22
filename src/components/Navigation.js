@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const Navigation = (props) => {
   return (
     <nav className="navigation">
+      
       <div className="container">
         <div className="logo-div">
           <Link to="/">

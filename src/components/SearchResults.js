@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Link} from 'react-router-dom';
 import "../App.css";
 import Search from "./Search";
 import Delete from "./Delete";
@@ -7,6 +8,7 @@ const SearchResults = () => {
   const [finalSearchValue, setFinalSearchValue] = useState("");
 
   const [fetchedData, setFetchedData] = useState([]);
+  console.log(fetchedData);
 
   const [renderOnDelete, setRenderOnDelete] = useState(false);
 
@@ -50,25 +52,11 @@ const SearchResults = () => {
 //   console.log("filtered", filtered);
 
   const DisplayAll = () => {
-    if (finalSearchValue === "*") {
+
       return fetchedData.map((any) => {
         return (
           <div className="single-book-details">
-            <Delete />
-            <div>{any.title}</div>
-            <div>{any.author}</div>
-            <div>{any.published_date}</div>
-            <div>{any.publisher}</div>
-            <div>{any.subtitle}</div>
-            <div>{any.language}</div>
-            <div>{any.isbn}</div>
-          </div>
-        );
-      });
-    } else {
-      return fetchedData.map((any) => {
-        return (
-          <div className="single-book-details">
+             <Link to={'/book/' + any.id}><button>open</button></Link>
             <Delete idToDelete={any.id} reRenderFunction={changeDeleteState}/>
             <div><b>Title :</b> {any.title}</div>
             <div><b>Author :</b> {any.author}</div>
@@ -77,7 +65,6 @@ const SearchResults = () => {
             <div><b>Subtitle :</b>{any.subtitle}</div>
             <div><b>Language:</b> {any.language}</div>
             <div><b>ISBN :</b>{any.isbn}</div>
-            <div>{comment}</div>
 
             <form>
               <input
@@ -91,7 +78,7 @@ const SearchResults = () => {
           </div>  
         );
       });
-    }
+
   };
 
   return (

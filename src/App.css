@@ -46,8 +46,7 @@ a {
   min-height: 100vh;
   padding: 0;
   margin: 0px;
-  background-color: #5cab95;
-  background-image: url(./components/fotos/book_PNG51099.png);
+  background-color: #5cdb95;
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -239,9 +238,8 @@ a {
 }
 
 .single-book-details:hover{
-  background: white;
-  box-shadow: inset 6px 10px 60px rgb(3, 3, 3);
-  transform: scale(1.08);
+  background: rgb(255, 255, 255);
+  box-shadow: inset 6px 10px 60px rgb(218, 211, 211);
 }
 
 .book-delete-button{
@@ -531,10 +529,34 @@ text-align: left;
   padding: 9px 19px;
 }
 
-.footer{
-  width: 100%;
-  background-color: violet;
-  mex-height: 200px;
+/*sidebar ......................................................*/
+
+.sidebar{
+  transition: all 0.8s;
+  position: fixed;
+  transform: translateX(-30rem);
+  width: 30rem;
+
+}
+
+.sidebar.open{
+  transform: translateX(0);
+  background-color: #7ed65b8e;
+  height:100%
+}
+
+.sidebar-close-button{
+  border-radius: 50%;
+  border: 0.1rem solid #e65a5a;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  padding-top: 0;
+  cursor:pointer;
+  position: absolute;
+  right:0.5rem;
+  top:1.5rem;
 }
 
 
