@@ -1,31 +1,31 @@
-import React, {useState, useEffect} from  'react';
-import '../App.css';
+import React from "react";
+import "../App.css";
 
+const Delete = (props) => {
+  const deleteFunction = (id) => {
+    const token = sessionStorage.getItem("token");
+    fetch("/delete?q=" + id, {
+      method: "DELETE",
+      header: {
+        Accept: "application.json",
+        "Content-Type": "application.json",
+        token: token,
+      },
+    });
 
+    props.reRenderFunction();
+  };
 
-
-
-
-const Delete = (props) =>{
-
-
-    
-      const deleteFunction = (id) => {
-          fetch('/delete?q=' + id, {
-              method: "DELETE",
-              header: {'Accept' : "application.json",
-              "Content-Type" : "application.json"
-            }
-          } )
-          
-          props.reRenderFunction()
-
-      }
-
-
-
-
-    return <div className="book-delete-button"  onClick={ () => {deleteFunction(props.idToDelete)}}>Delete Post</div> 
-}
+  return (
+    <button
+      className="book-delete-button"
+      onClick={() => {
+        deleteFunction(props.idToDelete);
+      }}
+    >
+      Delete Post
+    </button>
+  );
+};
 
 export default Delete;
