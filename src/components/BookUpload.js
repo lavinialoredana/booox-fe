@@ -23,7 +23,7 @@ console.log(loggedInUserId);
             user_id : parseRes.user_id,
             book_id : ""
           })
-          console.log(parseRes);
+          console.log("info from the header", parseRes);
         
         
     } catch (error) {
