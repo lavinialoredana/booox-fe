@@ -21,14 +21,25 @@ const BookUpload = () => {
     setFormData(updateFormData);
   };
 
+  const emptyFormData = {
+    title: "",
+    author: "",
+    publisher: "",
+    published_date: "",
+    isbn: "",
+    subtitle: "",
+    language: "",
+  };
+
   const handleSubmit = async (event) => {
+    event.preventDefault();
     const token = sessionStorage.getItem("token");
     await fetch("http://localhost:3001/book", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        token: "Bearer " + token,
+        token: token,
       },
       // We convert the React state to JSON and send it as the POST body
       body: JSON.stringify(formData),
@@ -36,8 +47,7 @@ const BookUpload = () => {
       console.log(response);
       console.log(response.json());
     });
-
-    event.preventDefault();
+    setFormData(emptyFormData);
   };
 
   return (
