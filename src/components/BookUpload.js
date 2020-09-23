@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../App.css";
+import React, { useState } from "react";
+import "../BookUpload.css";
 // import Button from "./Button";
 
 const BookUpload = () => {
@@ -13,6 +14,16 @@ const BookUpload = () => {
     language: "",
   });
 
+  // const initialForm = {
+  //   title: "",
+  //   author: "",
+  //   publisher: "",
+  //   published_date: "2020-01-01",
+  //   isbn: "",
+  //   subtitle: "",
+  //   language: "",
+  // };
+
   const handleOnChange = (event) => {
     const updateFormData = {
       ...formData,
@@ -21,25 +32,11 @@ const BookUpload = () => {
     setFormData(updateFormData);
   };
 
-  const emptyFormData = {
-    title: "",
-    author: "",
-    publisher: "",
-    published_date: "",
-    isbn: "",
-    subtitle: "",
-    language: "",
-  };
-
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const token = sessionStorage.getItem("token");
     await fetch("http://localhost:3001/book", {
       method: "POST",
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
-        token: token,
       },
       // We convert the React state to JSON and send it as the POST body
       body: JSON.stringify(formData),
@@ -47,20 +44,25 @@ const BookUpload = () => {
       console.log(response);
       console.log(response.json());
     });
-    setFormData(emptyFormData);
+
+    event.preventDefault();
   };
 
   return (
-    <div className="book-form-div">
-      <h2>BOOK UPLOAD FORM</h2>
+    <div className="main-container">
+      <div className="uploadbook-form-contqainer">
+        <h2>/ BOOK UPLOAD FORM</h2>
+      </div>
       <form
-        className="book-upload-form"
+        className="uploadbook-form"
         // action="/book"
         // method="POST"
         onSubmit={handleSubmit}
       >
-        <div>
-          <label htmlFor="book-title">Book title</label>
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="book-title">
+            Book title
+          </label>
           <input
             type="text"
             id="book-title"
@@ -70,8 +72,8 @@ const BookUpload = () => {
           />
         </div>
 
-        <div>
-          <label className="label-top" htmlFor="author">
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="author">
             Author{" "}
           </label>
           <input
@@ -83,8 +85,8 @@ const BookUpload = () => {
           />
         </div>
 
-        <div>
-          <label className="label-top" htmlFor="publisher">
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="publisher">
             Publisher
           </label>
           <input
@@ -96,8 +98,8 @@ const BookUpload = () => {
           />
         </div>
 
-        <div>
-          <label className="label-top" htmlFor="publish-date">
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="publish-date">
             Publish Date
           </label>
           <input
@@ -109,8 +111,8 @@ const BookUpload = () => {
           />
         </div>
 
-        <div>
-          <label className="label-top" htmlFor="isbn">
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="isbn">
             ISBN
           </label>
           <input
@@ -122,8 +124,8 @@ const BookUpload = () => {
           />
         </div>
 
-        <div>
-          <label className="label-top" htmlFor="subtitle">
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="subtitle">
             Subtitle
           </label>
           <input
@@ -135,8 +137,8 @@ const BookUpload = () => {
           />
         </div>
 
-        <div>
-          <label className="label-top" htmlFor="language">
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="language">
             Language
           </label>
           <input
@@ -144,9 +146,24 @@ const BookUpload = () => {
             name="language"
             id="language"
             onChange={handleOnChange}
-            value={formData.language}
+            value={formData.langauage}
           />
         </div>
+
+        {/* <div>
+        
+        <div>Book state</div>
+        <label htmlFor="book-state">Brand New</label>
+        <input type="checkbox" name="Brand-New" id="book-state-new" />
+
+        <label htmlFor="book-state">Pre Loved</label>
+        <input type="checkbox" name="Pre-Loved" id="book-state-pre-loved" />
+
+        <label htmlFor="book-state">Vintage</label>
+        <input type="checkbox" name="Vintage" id="book-state-vintage" />
+        </div> */}
+
+        {/* <Button buttonName="Submit" /> */}
         <button className="button-normal">Submit</button>
       </form>
     </div>
