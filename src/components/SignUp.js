@@ -1,124 +1,116 @@
-import React, { useState, useEffect } from 'react';
-import '../App.css'; 
-import Button from './Button';
+import React, { useState } from "react";
+import "../App.css";
 
+const SignUp = ({ setAuth }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-
-
-const SignUp = () => {
-
-
-const [formData, setFormData] = useState({
-    id: "",
-    firstName: "",
-    lastName: "",
-    email: ""
-});
-
-const handleOnChange = event => {
-    
+  const handleOnChange = (event) => {
     const updateFormData = {
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     };
     setFormData(updateFormData);
+  };
 
+  const { email, password, name } = formData;
 
-}
+  const onSubmitForm = async (e) => {
+    e.preventDefault();
+    try {
+      const body = { name, email, password };
 
+      const response = await fetch("http://localhost:3001/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
 
+      const parseRes = await response.json();
+      sessionStorage.setItem("token", parseRes.token);
 
-const [reRender, setReRender] = useState('enable')
-const handleSubmit = (event) => {
-    if (reRender === 'enable'){
-             setReRender('disable')
-    }
-
-    else{
-        setReRender('enable')
+      setAuth(true);
+    } catch (err) {
+      console.error(err);
     }
   };
-console.log(formData.firstName);
-console.log(formData.lastName);
-console.log(formData.email);
 
+  //calling htmlFor the jwt token
 
+  return (
+    <div className="login-register-body">
+      <div className="login-register-container">
+        <div className="login-register-header">
+          <h1>Sign-Up</h1>
+        </div>
 
-const initialValue = {
-    firstName: "",
-    lastName: "",
-    email: ""
-
-}
-
-const [fetchedData, setFetchedData] = useState([])
-console.log(fetchedData);
-
-
-
-
-console.log('rerender', reRender);
-
-// function fetchData () {
-
-
-
-// }
-
-
-    return (
-            <div className="login-register-body" >
-
-                <div className="login-register-container">
-                    <div className="login-register-header">
-                        <h1>Sign-Up</h1>
-                    </div>
-        
-        <form className="form" id="form">
-            <div className="form-control">
-                <level for="signup-name">Name</level>
-                <input type='text' id="signup-name"/>
-                <i className="fas fa-check-circle" />
-                <i className="fas fa-exclamation-circle" />
-                <small>error message</small>
-            </div>
-            <div className="form-control">
-                <level for="signup-surname">Surname</level>
-                <input type='text' id="signup-surname" />
-                <i className="fas fa-check-circle" />
-                <i className="fas fa-exclamation-circle" />
-                <small>error message</small>
-            </div>
-            <div className="form-control">
-                <level for="signup-address">Address</level>
-                <input type='text'  id="signup-address" />
-                <i className="fas fa-check-circle" />
-                <i className="fas fa-exclamation-circle" />
-                <small>error message</small>
-            </div>
-            <div className="form-control">
-                <level for="signup-username">Username</level>
+        <form className="form" id="form" onSubmit={onSubmitForm}>
+          <div className="form-control">
+            <label htmlFor="signup-name">Name</label>
+            <input
+              type="text"
+              id="signup-name"
+              name="name"
+              onChange={handleOnChange}
+              value={formData.name}
+              className="signup-name"
+            />
+            <i className="fas fa-check-circle" />
+            <i className="fas fa-exclamation-circle" />
+            <small>error message</small>
+          </div>
+          <div className="form-control">
+            <label htmlFor="signup-email">Email</label>
+            <input
+              type="email"
+              id="signup-email"
+              name="email"
+              onChange={handleOnChange}
+              value={formData.email}
+              autoComplete="username"
+              className="signup-email"
+            />
+            <i className="fas fa-check-circle" />
+            <i className="fas fa-exclamation-circle" />
+            <small>error message</small>
+          </div>
+          <div className="form-control">
+            <label htmlFor="signup-password">Password</label>
+            <input
+              type="password"
+              id="signup-password"
+              name="password"
+              onChange={handleOnChange}
+              value={formData.password}
+              autoComplete="new-password"
+              className="signup-password"
+            />
+            <i className="fas fa-check-circle" />
+            <i className="fas fa-exclamation-circle" />
+            <small>error message</small>
+          </div>
+          {/* <div className="form-control">
+                <label htmlFor="signup-username">Username</label>
                 <input type='text' id="signup-username"/>
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
                 <small>error message</small>
             </div>
             <div className="form-control">
-                <level for="signup-password">Password</level>
+                <label htmlFor="signup-password">Password</label>
                 <input type='text' id="signup-password" />
                 <i className="fas fa-check-circle" />
                 <i className="fas fa-exclamation-circle" />
                 <small>error message</small>
-            </div>
-            <button>Register</button>
-      </form>
-                    
-        </div>
-           
-
-        </div>
-    )
-}
+            </div> */}
+          <button>Register</button>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 export default SignUp;
-
