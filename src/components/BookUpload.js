@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "../App.css";
+import "../BookUpload.css";
 // import Button from "./Button";
 
 const BookUpload = () => {
-
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -12,7 +11,6 @@ const BookUpload = () => {
     isbn: "",
     subtitle: "",
     language: "",
-
   });
 
   // const initialForm = {
@@ -31,7 +29,7 @@ const BookUpload = () => {
       [event.target.name]: event.target.value,
     };
     setFormData(updateFormData);
-  }
+  };
 
   const handleSubmit = async (event) => {
     await fetch("http://localhost:3001/book", {
@@ -50,18 +48,20 @@ const BookUpload = () => {
   };
 
   return (
-    
-    
-    <div className="book-form-div">
-      <div>BOOK UPLOAD FORM</div>
+    <div className="main-container">
+      <div className="uploadbook-form-contqainer">
+        <h2>/ BOOK UPLOAD FORM</h2>
+      </div>
       <form
-        className="book-upload-form"
+        className="uploadbook-form"
         // action="/book"
         // method="POST"
         onSubmit={handleSubmit}
       >
-        <div>
-          <label htmlFor="book-title">Book title</label>
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="book-title">
+            Book title
+          </label>
           <input
             type="text"
             id="book-title"
@@ -71,85 +71,85 @@ const BookUpload = () => {
           />
         </div>
 
-          <div>
-            <label className="label-top" for="author">
-              Author{" "}
-            </label>
-            <input
-              type="text"
-              name="author"
-              id="author"
-              onChange={handleOnChange}
-              value={formData.author}
-            />
-          </div>
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="author">
+            Author{" "}
+          </label>
+          <input
+            type="text"
+            name="author"
+            id="author"
+            onChange={handleOnChange}
+            value={formData.author}
+          />
+        </div>
 
-          <div>
-            <label className="label-top" for="publisher">
-              Publisher
-            </label>
-            <input
-              type="text"
-              name="publisher"
-              id="publisher"
-              onChange={handleOnChange}
-              value={formData.publisher}
-            />
-          </div>
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="publisher">
+            Publisher
+          </label>
+          <input
+            type="text"
+            name="publisher"
+            id="publisher"
+            onChange={handleOnChange}
+            value={formData.publisher}
+          />
+        </div>
 
-          <div>
-            <label className="label-top" for="publish-date">
-              Publish Date
-            </label>
-            <input
-              type="date"
-              name="published_date"
-              id="publish-date"
-              onChange={handleOnChange}
-              value={formData.published_date}
-            />
-          </div>
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="publish-date">
+            Publish Date
+          </label>
+          <input
+            type="date"
+            name="published_date"
+            id="publish-date"
+            onChange={handleOnChange}
+            value={formData.published_date}
+          />
+        </div>
 
-          <div>
-            <label className="label-top" for="isbn">
-              ISBN
-            </label>
-            <input
-              type="text"
-              name="isbn"
-              id="isbn"
-              onChange={handleOnChange}
-              value={formData.isbn}
-            />
-          </div>
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="isbn">
+            ISBN
+          </label>
+          <input
+            type="text"
+            name="isbn"
+            id="isbn"
+            onChange={handleOnChange}
+            value={formData.isbn}
+          />
+        </div>
 
-          <div>
-            <label className="label-top" for="subtitle">
-              Subtitle
-            </label>
-            <input
-              type="text"
-              name="subtitle"
-              id="subtitle"
-              onChange={handleOnChange}
-              value={formData.subtitle}
-            />
-          </div>
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="subtitle">
+            Subtitle
+          </label>
+          <input
+            type="text"
+            name="subtitle"
+            id="subtitle"
+            onChange={handleOnChange}
+            value={formData.subtitle}
+          />
+        </div>
 
-          <div>
-            <label className="label-top" for="language">
-              Language
-            </label>
-            <input
-              type="text"
-              name="language"
-              id="language"
-              onChange={handleOnChange}
-              value={formData.langauage}
-            />
-          </div>
+        <div className="uploadbook-field-div">
+          <label className="label-top" for="language">
+            Language
+          </label>
+          <input
+            type="text"
+            name="language"
+            id="language"
+            onChange={handleOnChange}
+            value={formData.langauage}
+          />
+        </div>
 
-          {/* <div>
+        {/* <div>
         
         <div>Book state</div>
         <label htmlFor="book-state">Brand New</label>
@@ -163,11 +163,8 @@ const BookUpload = () => {
         </div> */}
 
         {/* <Button buttonName="Submit" /> */}
-        <button className="button-normal">
-          Submit
-        </button>
+        <button className="button-normal">Submit</button>
       </form>
-
     </div>
   );
 };
