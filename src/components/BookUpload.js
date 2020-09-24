@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import React, { useState } from "react";
+
 import "../BookUpload.css";
 // import Button from "./Button";
 
@@ -14,29 +14,33 @@ const BookUpload = () => {
     language: "",
   });
 
-  // const initialForm = {
-  //   title: "",
-  //   author: "",
-  //   publisher: "",
-  //   published_date: "2020-01-01",
-  //   isbn: "",
-  //   subtitle: "",
-  //   language: "",
-  // };
-
   const handleOnChange = (event) => {
-    const updateFormData = {
+    const updatedFormData = {
       ...formData,
       [event.target.name]: event.target.value,
     };
-    setFormData(updateFormData);
+    setFormData(updatedFormData);
+  };
+
+  const emptyForm = {
+    title: "",
+    author: "",
+    publisher: "",
+    published_date: "2020-01-01",
+    isbn: "",
+    subtitle: "",
+    language: "",
   };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
+    const token = sessionStorage.getItem("token");
     await fetch("http://localhost:3001/book", {
       method: "POST",
       headers: {
+        Accept: "application/json",
         "Content-Type": "application/json",
+        token: token,
       },
       // We convert the React state to JSON and send it as the POST body
       body: JSON.stringify(formData),
@@ -44,13 +48,12 @@ const BookUpload = () => {
       console.log(response);
       console.log(response.json());
     });
-
-    event.preventDefault();
+    setFormData(emptyForm);
   };
 
   return (
     <div className="main-container">
-      <div className="uploadbook-form-contqainer">
+      <div className="uploadbook-form-container">
         <h2>/ BOOK UPLOAD FORM</h2>
       </div>
       <form
@@ -60,7 +63,7 @@ const BookUpload = () => {
         onSubmit={handleSubmit}
       >
         <div className="uploadbook-field-div">
-          <label className="label-top" for="book-title">
+          <label className="label-top" htmlFor="book-title">
             Book title
           </label>
           <input
@@ -73,7 +76,7 @@ const BookUpload = () => {
         </div>
 
         <div className="uploadbook-field-div">
-          <label className="label-top" for="author">
+          <label className="label-top" htmlFor="author">
             Author{" "}
           </label>
           <input
@@ -86,7 +89,7 @@ const BookUpload = () => {
         </div>
 
         <div className="uploadbook-field-div">
-          <label className="label-top" for="publisher">
+          <label className="label-top" htmlFor="publisher">
             Publisher
           </label>
           <input
@@ -99,7 +102,7 @@ const BookUpload = () => {
         </div>
 
         <div className="uploadbook-field-div">
-          <label className="label-top" for="publish-date">
+          <label className="label-top" htmlFor="publish-date">
             Publish Date
           </label>
           <input
@@ -112,7 +115,7 @@ const BookUpload = () => {
         </div>
 
         <div className="uploadbook-field-div">
-          <label className="label-top" for="isbn">
+          <label className="label-top" htmlFor="isbn">
             ISBN
           </label>
           <input
@@ -125,7 +128,7 @@ const BookUpload = () => {
         </div>
 
         <div className="uploadbook-field-div">
-          <label className="label-top" for="subtitle">
+          <label className="label-top" htmlFor="subtitle">
             Subtitle
           </label>
           <input
@@ -138,7 +141,7 @@ const BookUpload = () => {
         </div>
 
         <div className="uploadbook-field-div">
-          <label className="label-top" for="language">
+          <label className="label-top" htmlFor="language">
             Language
           </label>
           <input
