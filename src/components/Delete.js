@@ -2,8 +2,11 @@ import React from "react";
 import "../App.css";
 
 const Delete = (props) => {
-  const deleteFunction = (id) => {
-    const token = sessionStorage.getItem("token");
+
+  const id = props.idToDelete;
+  const deleteFunction = () => {
+    const token = localStorage.getItem("token");
+
     fetch("/delete?q=" + id, {
       method: "DELETE",
       header: {
@@ -14,14 +17,13 @@ const Delete = (props) => {
     });
 
     props.reRenderFunction();
+    console.log(props.idToDelete);
   };
 
   return (
     <button
       className="book-delete-button"
-      onClick={() => {
-        deleteFunction(props.idToDelete);
-      }}
+      onClick={deleteFunction}
     >
       Delete Post
     </button>

@@ -46,7 +46,7 @@ a {
   min-height: 100vh;
   padding: 0;
   margin: 0px;
-  background-color: #5cdb95;
+  background-color:var(--main-light-color) ;
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -82,7 +82,7 @@ a {
   display: flex;
   background: transparent;
   width: 100%;
-  height: fit-content;
+  overflow: visible;
 }
 
 .navigation .container {
@@ -128,7 +128,7 @@ a {
 .register:hover,
 .login:hover {
   border: 2px solid --main-red;
-  background-color: var(--main-light-color);
+  background-color: var(--light-blue);
 }
 
 
@@ -141,37 +141,74 @@ a {
   justify-content: flex-start;
  
 }
-
-.home-page-up{
-  width: inherit;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .home-page-up h1{
   font-size: 55px;
   color: #4b539b;
 }
 
-.home-page-bottom{
-  min-height: 300px;
-  width: inherit;
-  padding: 10px 0px;
-}
 
 .search-results{
   width: 100%;
   position: relative;
 
 }
+/*result table.......................................................................................................*/
+table{
+  width: 100%;
+  border: 1px solid grey;
+
+}
+
+.table-th-tr{
+  height: 50px;
+  padding: 20px 0px;
+  background-color: wheat;
+  font-size: x-large;
+  text-align: center;
+}
+
+.table-tb-tr{
+  height: 40px;
+  padding: 13px 5px;
+  font-size: larger;
+
+}
+
+.table-tb-tr button{
+  display: block;
+  flex-basis:2;
+  flex-grow: initial;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.table-tb-tr button:hover{
+  background-color: lightslategray;
+  cursor: pointer;
+}
+
+.table-tb-tr td:nth-child(5) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+
 
 .title {
   font-size: 7rem;
   text-shadow: 3px 3px #F8F8FF;
   text-align: center;
   margin-bottom: 2rem;
+}
+.table-cover{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -231,15 +268,10 @@ a {
   .single-book-details {
     flex-basis: 100%;
   }
-} 
+} -book
 .single-book-details div{
   border-bottom: 1px solid grey;
   padding: 5px;
-}
-
-.single-book-details:hover{
-  background: rgb(255, 255, 255);
-  box-shadow: inset 6px 10px 60px rgb(218, 211, 211);
 }
 
 .book-delete-button{
@@ -286,22 +318,44 @@ text-align: left;
 .user-page{
   width: 100%;
   min-height: 800px;
-  background-color: rgba(0, 0, 0, 0.356);
+  background-color: rgb(255, 255, 255);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 40px 60px;
 }
 
-.user-page-left{
-  flex-basis: 20%;
+.user-page-1{
   background-color: rgb(121, 121, 184);
   text-align: center;
+  margin: 20px;
 }
 
-.user-page-right{
-  flex-basis: 80%;
+.user-page-2{
+  flex-basis: 20%;
+  min-height:250px;
+  margin: 20px;
+  background-color: yellowgreen;
+
 
 
 }
+.user-page-3-open{
+  display: block;
+  background-color: yellowgreen;
+}
+
+.user-page-3-close{
+  display: none;
+}
+/*back button ..........................................................................*/
+.user-page a{
+  background-color: green;
+  width: fit-content;
+  padding: 20px 10px;
+  font-size: large;
+}
+
+
 
 /* login......................................................*/
 *{
@@ -440,6 +494,7 @@ text-align: left;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  display: block;
 
 }
 .form-wrapper{
@@ -463,8 +518,7 @@ text-align: left;
 }
 .searchbar{
   border:none;
-  width:60%;
-  min-width: 200px;
+  width: 100%;
   font-size:16px;
   outline: none;
   margin: 0 auto;
@@ -534,30 +588,128 @@ text-align: left;
 .sidebar{
   transition: all 0.8s;
   position: fixed;
-  transform: translateX(-30rem);
-  width: 30rem;
+  transform: translateX(-150rem);
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100%;
+  flex-wrap: nowrap;
+   
 
+
+}
+.sidebar-1{
+  flex-basis: 1;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 0px 0px 0px;
+  z-index: 5;
+  background-color: rgb(109, 101, 101);
+  flex-grow: 1;
+  position: relative;
+
+
+}
+.sidebar-2{
+flex-basis: 60%;
+height: inherit;
+flex-basis: 2;
+background-color: rgba(0, 0, 0, 0.397);
+flex-grow: 2;
+}
+
+.sidebar-1 div{
+  padding: 20px 10px;
+  width: 80%;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: x-large;
+  border-bottom: 1px solid rgb(168, 78, 18);
+  z-index: 5;
+  
+}
+
+.sidebar-1 div:hover{
+  background-color: rgba(160, 114, 62, 0.767);
+}
+
+.sidebar-up{
+  justify-self: flex-start;
+}
+.sidebar-up i{
+  margin: 0px 10px;
+}
+.sidebar-down{
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar.open{
   transform: translateX(0);
-  background-color: #7ed65b8e;
-  height:100%
+  height:100%;
+  z-index: 1;
 }
 
-.sidebar-close-button{
-  border-radius: 50%;
-  border: 0.1rem solid #e65a5a;
-  width: 3rem;
-  height: 3rem;
-  padding: 0.5rem;
-  font-size: 2rem;
-  padding-top: 0;
-  cursor:pointer;
+.sidebar-close-button {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  color: transparent;
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  right: 0%;
+  letter-spacing: 1.5px;
+  line-height: 31px;
+  outline: none;
+  overflow: hidden;
   position: absolute;
-  right:0.5rem;
-  top:1.5rem;
+  text-transform: uppercase;
+  top: 0%;
+  transform: translate(-50%, 50%);
+  transition: all 0.2s ease-in;
+  width: 30px;
 }
+
+.sidebar-close-button::before,
+.sidebar-close-button::after {
+  background-color: white;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  transition: all 0.2s ease-in;
+  width: 141.4214px;
+  z-index: -1;
+}
+
+.sidebar-close-button::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.sidebar-close-button::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.sidebar-close-button:hover {
+  color: #8A2387;
+  background-color: rgb(182, 69, 69);
+
+}
+
+.sidebar-close-button:hover::before,
+.sidebar-close-button:hover::after {
+  height: 50px;
+  transform: rotate(0deg);
+}
+
 
 
 

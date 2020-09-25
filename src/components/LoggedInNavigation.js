@@ -22,27 +22,48 @@ const LoggedInNavigation = (props) => {
   return (
     <div className="navigation">
       <aside className="sidebar">
-        <h3>Shopping Categories</h3>
-        <button className="sidebar-close-button" onClick={closeMenu}>
+        <div className="sidebar-1">
+      <button className="sidebar-close-button" onClick={closeMenu}>
           x
         </button>
-        <ul>
-          <li>
+        <div className="sidebar-up">
+        <h2><i className='fas'>&#xf406;</i>Menu</h2>
+        
+        </div>
+          <div>
             <Link to="/userprofile">Profile Area</Link>
-          </li>
-          <li>
-            <Link to="/bookupload">upload Book </Link>
-          </li>
-          <li>
-            <a href="index.html">Wallets</a>
-          </li>
-        </ul>
+            </div>
+      
+            <div>
+            <Link to="/bookupload">Upload Books</Link>
+            </div>
+      
+            <div>
+            <a href="index.html">Edit Books</a>
+            </div>
+
+            <div>
+            <a href="index.html">My messages </a>
+            </div>
+
+            <div>
+            <a href="index.html">Update my info</a>
+            </div>
+
+            <div>
+            <a href="index.html">Change Password</a>
+            </div>
+          
+
+          </div>
+          <div className="sidebar-2" onClick={closeMenu}>
+          </div>  
       </aside>
 
       <div className="container">
         <div>
           <button className="login" onClick={openMenu}>
-            menu
+           User Menu
           </button>
         </div>
         <div className="logo-div">
@@ -52,10 +73,6 @@ const LoggedInNavigation = (props) => {
         </div>
 
         <div>
-          <Link to="/userprofile">
-            {" "}
-            <button className="login">User Page</button>{" "}
-          </Link>
           <button className="login" onClick={(e) => logout(e)}>
             logout
           </button>

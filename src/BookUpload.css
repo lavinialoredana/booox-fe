@@ -44,7 +44,6 @@ a {
   width: 100%;
   padding: 0;
   margin: 0px;
-  background-image: url("./components/fotos/cover.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -219,7 +218,6 @@ a {
 .single-book-details:hover {
   background: white;
   box-shadow: inset 6px 10px 60px rgb(3, 3, 3);
-  transform: scale(1.08);
 }
 
 .book-delete-button {
@@ -252,25 +250,6 @@ a {
 .search-results p {
   margin-top: 30px;
   text-align: left;
-}
-
-/*USER PAGE................................................................................*/
-
-.user-page {
-  width: 100%;
-  min-height: 800px;
-  background-color: rgba(0, 0, 0, 0.356);
-  display: flex;
-  flex-direction: row;
-}
-
-.user-page-left {
-  flex-basis: 20%;
-  background-color: rgb(121, 121, 184);
-}
-
-.user-page-right {
-  flex-basis: 80%;
 }
 
 /* login......................................................*/
