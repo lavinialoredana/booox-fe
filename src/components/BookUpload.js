@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../BookUpload.css";
+import { Link } from "react-router-dom";
+import "./UploadBook.css";
 // import Button from "./Button";
 
 const BookUpload = () => {
@@ -49,9 +50,12 @@ const BookUpload = () => {
 
   return (
     <div className="main-container">
-      <div className="uploadbook-form-contqainer">
-        <h2>/ BOOK UPLOAD FORM</h2>
+      <div className="uploadbook-heading">
+        
+        <h2>/ UPLOAD YOUR BOOK</h2>
+        <p>*Submit your book to be reviewed and published to the library. As soon as we will approve your book lorem ipsum lorem ipsum lorem ipsum..</p>
       </div>
+
       <form
         className="uploadbook-form"
         // action="/book"
@@ -163,7 +167,10 @@ const BookUpload = () => {
         </div> */}
 
         {/* <Button buttonName="Submit" /> */}
-        <button className="button-normal">Submit</button>
+        <div  className="button-normal">
+        <button><Link to="/userprofile"> CANCEL</Link></button>
+        <button>SUBMIT</button>
+        </div>
       </form>
     </div>
   );
