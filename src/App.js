@@ -43,6 +43,7 @@ function App() {
   };
 
   return (
+    
     <Router>
       {isAuthenticated ? (
         <LoggedInNavigation logoutfunction={setAuth} />

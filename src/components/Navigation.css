@@ -1,0 +1,56 @@
+.navigation{
+    
+    display: flex;
+    flex-direction: row;
+    padding: 0rem 8rem;
+    background-color: transparent;
+    align-content: flex-end;
+    justify-content: flex-end;
+
+}
+
+
+.register,
+.login {
+  padding: 2rem 0rem;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.6rem;
+  border: none;
+}
+.login, .register a{
+    color:#111112;
+}
+
+.login {
+  margin-left: 2rem;
+}
+
+.register:hover a,
+.login:hover a{
+    cursor: pointer;
+    transition: 0.7s;
+    color: hotpink;
+}
+.navigation h2{
+    justify-self: flex-start !important;
+    display: block;
+}
+
+.login-register{
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+/*LOGGED IN NAVIGATION.............................................................*/
+
+.loggedIn-navigation{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        height: 40px;
+        padding-top: 20px;
+        font-style: italic;
+        
+}

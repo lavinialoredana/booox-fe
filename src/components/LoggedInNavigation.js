@@ -1,10 +1,10 @@
 import React from "react";
-import "../App.css";
+import "./Navigation.css";
 
-import justShareIt from "./fotos/justShareIt.PNG";
 import { Link } from "react-router-dom";
 
 const LoggedInNavigation = (props) => {
+
   const logout = (e) => {
     e.preventDefault();
     props.logoutfunction(false);
@@ -20,17 +20,27 @@ const LoggedInNavigation = (props) => {
   };
 
   return (
-    <div className="navigation">
+    <div className="loggedIn-navigation">
+      <Link to="/"><h2>BOOOX</h2></Link>
       <aside className="sidebar">
+      
+      <div className="sidebar-2" onClick={closeMenu}>
+
+          </div>  
+
+
+
         <div className="sidebar-1">
-      <button className="sidebar-close-button" onClick={closeMenu}>
+
+    
+        <div><h2><i className='fas'>&#xf406;</i>Menu</h2></div> 
+        
+           <button className="sidebar-close-button" onClick={closeMenu}>
           x
         </button>
-        <div className="sidebar-up">
-        <h2><i className='fas'>&#xf406;</i>Menu</h2>
+
         
-        </div>
-          <div>
+          <div className="sidebar-profile-area">
             <Link to="/userprofile">Profile Area</Link>
             </div>
       
@@ -50,34 +60,25 @@ const LoggedInNavigation = (props) => {
             <a href="index.html">Update my info</a>
             </div>
 
-            <div>
-            <a href="index.html">Change Password</a>
+          
+
+            <div onClick={logout}> 
+            Logout
             </div>
           
 
           </div>
-          <div className="sidebar-2" onClick={closeMenu}>
-          </div>  
       </aside>
 
-      <div className="container">
-        <div>
+      
+    
           <button className="login" onClick={openMenu}>
            User Menu
           </button>
-        </div>
-        <div className="logo-div">
-          <Link to="/">
-            <img alt="" src={justShareIt} />
-          </Link>
-        </div>
+        
 
-        <div>
-          <button className="login" onClick={(e) => logout(e)}>
-            logout
-          </button>
-        </div>
-      </div>
+
+    
     </div>
   );
 };

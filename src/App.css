@@ -8,6 +8,7 @@
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;  
 }
 
 * {
@@ -18,27 +19,17 @@ html {
 
 h1{
   font-size: 50px;
-  color: rgb(28, 71, 28);
 }
 
 h2{
   font-size: 36px;
 }
 
-body {
-  background-color: rgb(244, 244, 244);
-  color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
-  background: #603813; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #603813, #b29f94); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #603813, #b29f94); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-} 
+
 a {
   text-decoration: none;
+  cursor: pointer;
+  color: #02044F;
 }
 
 #root {
@@ -46,11 +37,14 @@ a {
   min-height: 100vh;
   padding: 0;
   margin: 0px;
-  background-color:var(--main-light-color) ;
+  background-color: #DBE8EA;
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
   justify-content: flex-start ;
+  font-family: 'Nunito', sans-serif;
+
+
 
 
   /* display: flex;
@@ -73,26 +67,12 @@ a {
 
 /* systemetic */
 
-.navigation {
-  display: flex;
-  background: transparent;
-  width: 100%;
-}
+
 .loggedin-navigation{
   display: flex;
-  background: transparent;
+  background: green;
   width: 100%;
   overflow: visible;
-}
-
-.navigation .container {
-  margin: 0 auto;
-  width: 80%;
-  display: flex;
-  height: fit-content;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* @media screen and (min-width: 480px) {
@@ -102,76 +82,59 @@ a {
   }
 } */
 
-.logo-div {
-  background: transparent;
-}
-
-.logo-div img {
-  width: 100px;
-  height: 80px;
-  background: transparent;
-}
-
-.register,
-.login {
-  padding: 0.7rem 2rem 0.7rem 2rem;
-  background-color: var(--light-blue);
-  text-align: center;
-  border-radius: 20px;
-  font-size: 1.6rem;
-}
-
-.login {
-  margin-left: 2rem;
-}
-
-.register:hover,
-.login:hover {
-  border: 2px solid --main-red;
-  background-color: var(--light-blue);
-}
 
 
-.home-page {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
- 
-}
-.home-page-up h1{
-  font-size: 55px;
-  color: #4b539b;
-}
 
-
-.search-results{
-  width: 100%;
-  position: relative;
-
-}
 /*result table.......................................................................................................*/
 table{
   width: 100%;
-  border: 1px solid grey;
 
 }
 
 .table-th-tr{
   height: 50px;
   padding: 20px 0px;
-  background-color: wheat;
   font-size: x-large;
   text-align: center;
+  background-color: black;
+  color: white;
 }
 
 .table-tb-tr{
   height: 40px;
   padding: 13px 5px;
-  font-size: larger;
+  font-size: 1.7rem;
 
+
+
+
+}
+.table-tb-tr-black{
+  height: 40px;
+  padding: 13px 5px;
+  font-size: 1.7rem;
+  background-color:rgb(0, 0, 0);
+  color: white;
+
+
+
+
+}
+.table-tb-tr :last-child:hover{
+  cursor: pointer;
+  transition: 0.2s;
+  color:white;
+  text-transform: uppercase;
+
+
+}
+
+
+
+.table-tb-tr:hover{
+  background-color:rgb(0, 0, 0);
+  color: white;
+  
 }
 
 .table-tb-tr button{
@@ -182,20 +145,19 @@ table{
   width: 100%;
   height: 100%;
   border: none;
-}
-.table-tb-tr button:hover{
-  background-color: lightslategray;
-  cursor: pointer;
+  background-color: transparent;
 }
 
 .table-tb-tr td:nth-child(5) {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0rem 2rem;
 
 }
-
-
+.table-tb-tr td:nth-child(5) a:hover{
+  text-decoration: underline;
+}
 
 
 .title {
@@ -209,13 +171,6 @@ table{
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-
-
-.home-page div {
-  position: relative;
-  text-align: left
 }
 
 .btn-borrow,
@@ -302,16 +257,6 @@ table{
 
 }
 
-.homepage-right {
-  margin-top: 80px;
-}
-
-
-.search-results p{
-margin-top:30px;
-text-align: left;
-
-}
 
 /*USER PAGE................................................................................*/
 
@@ -381,8 +326,8 @@ text-align: left;
 
 .login-register-container{
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  width: 350px;
+  border-radius: 50px;
+  width: 850px;
   max-width: 100%;
   overflow: hidden;
   box-shadow: 1px 1px 20px rgb(119, 53, 53);
@@ -487,116 +432,33 @@ text-align: left;
   flex-direction: column;
 }
 
-/* homepage search */
-.search-form{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  display: block;
 
-}
-.form-wrapper{
-  width:100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0px;
-  left: 0;
-  right: 0;
-  margin:auto;
-  
-
-}
-
-.bar:focus-within{
-  box-shadow: 1px 1px 8px 1px #dcdcdc;
-  outline:none;
-}
-.searchbar{
-  border:none;
-  width: 100%;
-  font-size:16px;
-  outline: none;
-  margin: 0 auto;
-  border-radius:30px;
-  border:1px solid #2c2828;
-  background-color: rgba(34, 29, 29, 0.575);
-  display: flex;
-  flex-direction: row;
-  padding: 0 10px;
-
-  
-}
-.searchbar-input{
-    height:40px;
-    border:none;
-    width:80%;
-    font-size:16px;
-    outline: none;
-    margin: 0 auto;
-    display: block;
-    background-color: unset ;
-    color: rgb(247, 247, 247);
-    flex-basis: 80%;
-    justify-content: center;
-    align-items: center;
-    
-}
-.searchbar:hover{
-  box-shadow: 1px 1px 8px 1px #423f3f;
-}
-.search-image-div{
-  flex-basis: 10%;
-  position: relative;
-}
-.voice{
-  position: absolute;
-  height:20px;
-  top:32%;
-  left:20%;
-}
-.buttons{
-  margin-top:30px;
-}
-.button{
-  background-color: #e9ece8de;
-  border:none;
-  color:#050505;
-  font-size:15px;
-  padding: 10px 20px;
-  margin:5px;
-  border-radius:4px;
-  outline:none;
-}
-.button:hover{
-  border: 1px solid #5c9c37;
-  padding: 9px 19px;
-  color:#1f1919;
-  background-color: rgb(100, 121, 98);
-}
-.button:focus{
-  border:1px solid #4885ed;
-  padding: 9px 19px;
-}
 
 /*sidebar ......................................................*/
 
 .sidebar{
   transition: all 0.8s;
+  position: absolute;
   position: fixed;
-  transform: translateX(-150rem);
+  transform: translateX(1000rem);
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
   height: 100%;
   flex-wrap: nowrap;
+  z-index: 1;
+  top: 0px;
    
 
 
+}
+.loggedIn-navigation button{
+  position: absolute;
+  top: 0px;
+  right: 30px;
+  display: block;
 }
 .sidebar-1{
   flex-basis: 1;
@@ -607,9 +469,10 @@ text-align: left;
   justify-content: flex-start;
   padding: 40px 0px 0px 0px;
   z-index: 5;
-  background-color: rgb(109, 101, 101);
+  background-color: rgb(97, 93, 93);
   flex-grow: 1;
   position: relative;
+  height: inherit;
 
 
 }
@@ -617,8 +480,9 @@ text-align: left;
 flex-basis: 60%;
 height: inherit;
 flex-basis: 2;
-background-color: rgba(0, 0, 0, 0.397);
-flex-grow: 2;
+background-color: rgba(170, 164, 164, 0.233);
+flex-grow: 3;
+height:100%
 }
 
 .sidebar-1 div{
@@ -627,7 +491,7 @@ flex-grow: 2;
   text-align: center;
   font-family: sans-serif;
   font-size: x-large;
-  border-bottom: 1px solid rgb(168, 78, 18);
+  border-bottom: 1px solid rgb(29, 28, 27);
   z-index: 5;
   
 }
@@ -638,6 +502,10 @@ flex-grow: 2;
 
 .sidebar-up{
   justify-self: flex-start;
+  padding: 10px;
+}
+.sidebar-profile-area{
+  padding-top: 20px;
 }
 .sidebar-up i{
   margin: 0px 10px;
