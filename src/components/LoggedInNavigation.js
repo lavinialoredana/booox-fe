@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./Navigation.css";
 
 import { Link } from "react-router-dom";
@@ -20,8 +20,10 @@ const LoggedInNavigation = (props) => {
   };
 
   return (
+    <Fragment>
+    <Link to="/"><h2>BOOOX</h2></Link>
     <div className="loggedIn-navigation">
-      <Link to="/"><h2>BOOOX</h2></Link>
+      
       <aside className="sidebar">
       
       <div className="sidebar-2" onClick={closeMenu}>
@@ -33,7 +35,7 @@ const LoggedInNavigation = (props) => {
         <div className="sidebar-1">
 
     
-        <div><h2><i className='fas'>&#xf406;</i>Menu</h2></div> 
+        
         
            <button className="sidebar-close-button" onClick={closeMenu}>
           x
@@ -41,6 +43,8 @@ const LoggedInNavigation = (props) => {
 
         
           <div className="sidebar-profile-area">
+          <div><h2><i className='fas'>&#xf406;</i>Menu</h2></div> 
+
             <Link to="/userprofile">Profile Area</Link>
             </div>
       
@@ -80,6 +84,7 @@ const LoggedInNavigation = (props) => {
 
     
     </div>
+    </Fragment>
   );
 };
 
