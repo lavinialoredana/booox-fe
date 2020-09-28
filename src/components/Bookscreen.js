@@ -10,6 +10,8 @@ function Bookscreen(props) {
 
 
   const name = sessionStorage.getItem("token");
+  console.log(name);
+  console.log(id);
   const userId = JSON.parse(atob(name.split(".")[1])).user;
 
   
