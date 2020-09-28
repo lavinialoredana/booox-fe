@@ -15,6 +15,7 @@ import SignUp from "../src/components/SignUp";
 import LoggedInNavigation from "./components/LoggedInNavigation";
 import UserPage from "./components/UserPage";
 import Bookscreen from "./components/Bookscreen";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   const checkAuthenticated = async () => {
@@ -43,7 +44,6 @@ function App() {
   };
 
   return (
-    
     <Router>
       {isAuthenticated ? (
         <LoggedInNavigation logoutfunction={setAuth} />
@@ -97,6 +97,7 @@ function App() {
           }
         />
         <Route path="/book/:id" component={Bookscreen} />
+        <Route exact path="/searchresults" component={SearchResults} />
       </Switch>
     </Router>
   );

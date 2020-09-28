@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./HomePage.css";
 import image from "./fotos/5.jpg";
 import image1 from "./fotos/6.jpg";
@@ -7,8 +8,8 @@ import SearchResults from "./SearchResults";
 
 const HomePage = () => {
   const [inputValue, setInputValue] = useState("");
-  const [fetchedData, setFetchedData] = useState([]);
 
+  const history = useHistory();
   const handleOnChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -18,7 +19,7 @@ const HomePage = () => {
     fetch(`/search?q=${inputValue}`)
       .then((res) => res.json())
       .then((result) => {
-        setFetchedData(result);
+        history.push("/searchresults", { data: result });
       })
       .catch((error) => console.error(error));
   };
@@ -48,7 +49,6 @@ const HomePage = () => {
               <button>Search</button>
             </form>
           </div>
-          {fetchedData && <SearchResults data={fetchedData} />}
         </div>
       </div>
       <div className="lower-body">

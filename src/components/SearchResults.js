@@ -10,7 +10,10 @@ const SearchResults = (props) => {
     "LANGUAGE",
     "VIEW / Borrow",
   ];
-  return props.data && props.data.length !== 0 ? (
+
+  return props.location &&
+    props.location.state.data &&
+    props.location.state.data.length !== 0 ? (
     <div className="search-results-table-container">
       <table className="table">
         <thead>
@@ -22,7 +25,7 @@ const SearchResults = (props) => {
         </thead>
 
         <tbody>
-          {props.data.map((any) => {
+          {props.location.state.data.map((any) => {
             return (
               <tr key={any.id} className="table-tb-tr">
                 <td className="table-td"> {any.title}</td>
