@@ -35,11 +35,6 @@
     transition: 0.7s;
     color: hotpink;
 }
-.navigation h2{
-    justify-self: flex-start !important;
-    display: block;
-}
-
 .login-register{
     align-self: flex-end;
     justify-self: flex-end;
@@ -48,16 +43,11 @@
 /*LOGGED IN NAVIGATION.............................................................*/
 
 .loggedIn-navigation{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: start;
-        height: 40px;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    align-content: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 5rem;
         
-}
-
-.loggedIn-navigation h2{
-    position: absolute;
-    left:8rem;
- 
 }

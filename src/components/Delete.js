@@ -5,7 +5,7 @@ const Delete = (props) => {
 
   const id = props.idToDelete;
   const deleteFunction = () => {
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
 
     fetch("/delete?q=" + id, {
       method: "DELETE",

@@ -8,19 +8,51 @@ function Bookscreen(props) {
 
   const [fetchedData, setFetchedData] = useState([]);
 
+
+  const name = sessionStorage.getItem("token");
+  const userId = JSON.parse(atob(name.split(".")[1])).user;
+
+  
+   
+
+
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   await fetch("http://localhost:3001/book", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     // We convert the React state to JSON and send it as the POST body
+  //     body: JSON.stringify(formData),
+  //   }).then(function (response) {
+  //     console.log(response);
+  //     console.log(response.json());
+  //   });
+
+    
+  // // };
+
+
+
+
   useEffect(() => {
-    fetch(`/book/?q=${id}`)
+    fetch(`/book?q=${id}`)
       .then((res) => res.json())
-      .then((result) => setFetchedData(result))
+      .then((result) => {
+        setFetchedData(result);
+      })
       .catch((error) => console.error(error));
   }, [id]);
+  
 
   const DisplayAll = () => {
 
     return fetchedData.map((any) => {
       return (
-        <Fragment>
-        <div className="individual-book-top"><h3>- BOOK CARD -</h3></div>
+        <Fragment key={any.id}>
+        <div className="individual-book-top"><h3 >- BOOK CARD -</h3></div>
         <div key={any.id} className="individual-book">
           <div className="individual-book-child individual-book-child-first ">
 

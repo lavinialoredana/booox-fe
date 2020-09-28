@@ -34,8 +34,6 @@ const SearchResults = () => {
       .then((result) => setFetchedData(result))
       .catch((error) => console.error(error));
   }, [finalSearchValue]);
-  
-  console.log(fetchedData);
 
 
   // const changeDeleteState = () => {
