@@ -18,28 +18,10 @@ import Bookscreen from "./components/Bookscreen";
 import SearchResults from "./components/SearchResults";
 
 function App() {
-  const checkAuthenticated = async () => {
-    try {
-      const res = await fetch("/auth/verify", {
-        method: "GET",
-        headers: { token: sessionStorage.token },
-      });
-
-      const parseRes = await res.json();
-
-      parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  useEffect(() => {
-    checkAuthenticated();
-  }, []);
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const setAuth = (boolean) => {
+    sessionStorage.getItem("token");
     setIsAuthenticated(boolean);
   };
 
