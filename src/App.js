@@ -15,6 +15,7 @@ import SignUp from "../src/components/SignUp";
 import LoggedInNavigation from "./components/LoggedInNavigation";
 import UserPage from "./components/UserPage";
 import Bookscreen from "./components/Bookscreen";
+import MyBookScreen from "./components/MyBookSreen";
 
 function App() {
   const checkAuthenticated = async () => {
@@ -97,6 +98,9 @@ function App() {
           }
         />
         <Route path="/book/:id" component={Bookscreen} />
+      
+        <Route path="my/book/:id" component={MyBookScreen} />
+
       </Switch>
     </Router>
   );

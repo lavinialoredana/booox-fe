@@ -1,0 +1,52 @@
+/*USER PAGE................................................................................*/
+
+.user-page{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 40px 60px;
+    flex-wrap: wrap;
+  }
+  
+  .user-page-1{
+    text-align: center;
+    margin: 20px;
+    flex-basis: 300px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  } 
+  
+  .user-page-1-child{
+    margin: 1rem 2rem;
+    padding: 0.6rem 0rem;
+    border-bottom: 1px solid grey;
+    font-size: 1.7rem;
+  }
+  
+  .user-page-2{
+    flex-basis:500px;
+    flex-grow: 1;
+  }
+  .user-page-2 h2{
+    font-size: 1.5rem;
+  }
+  
+  
+  
+  .user-page-3-open{
+    display: block;
+    
+  }
+  
+  .user-page-3-close{
+    display: none;
+  }
+
+  .user-page a{
+    background-color: green;
+    width: fit-content;
+    padding: 20px 10px;
+    font-size: large;
+  }
+  

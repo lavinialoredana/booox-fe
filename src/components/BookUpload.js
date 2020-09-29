@@ -33,6 +33,7 @@ const BookUpload = () => {
   };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     await fetch("http://localhost:3001/book", {
       method: "POST",
       headers: {
@@ -45,7 +46,7 @@ const BookUpload = () => {
       console.log(response.json());
     });
 
-    event.preventDefault();
+    
   };
 
   return (

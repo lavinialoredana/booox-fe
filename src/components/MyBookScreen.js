@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./BookScreen.css";
 import image1 from './fotos/image.png';
 
-function Bookscreen(props) {
+function MyBookScreen(props) {
   const id = props.match.params.id;
 
   const [fetchedData, setFetchedData] = useState([]);
@@ -84,6 +84,9 @@ function Bookscreen(props) {
           </div>
         </div>
         <div  className="button-normal button-bookcard">
+        <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>
+              <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>
+              <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>
         <button><Link to="/">GO BACK</Link></button>
         <button onClick={handleSubmit}>SUBMIT</button>
         </div>
@@ -96,4 +99,4 @@ function Bookscreen(props) {
   return <div className="individual-book-container-wrapper"><div className="individual-book-container">{DisplayAll()}</div></div>;
 }
 
-export default Bookscreen;
+export default My;

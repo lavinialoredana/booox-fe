@@ -252,30 +252,41 @@ table{
 
 .user-page{
   width: 100%;
-  min-height: 800px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 40px 60px;
+  flex-wrap: wrap;
 }
 
 .user-page-1{
-  background-color: rgb(121, 121, 184);
   text-align: center;
   margin: 20px;
+  flex-basis: 300px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+} 
+
+.user-page-1-child{
+  margin: 1rem 2rem;
+  padding: 0.6rem 0rem;
+  border-bottom: 1px solid grey;
+  font-size: 1.7rem;
 }
 
 .user-page-2{
-  flex-basis: 20%;
-  min-height:250px;
-  margin: 20px;
-  background-color: yellowgreen;
-
-
-
+  flex-basis:500px;
+  flex-grow: 1;
 }
+.user-page-2 h2{
+  font-size: 1.5rem;
+}
+
+
+
 .user-page-3-open{
   display: block;
-  background-color: yellowgreen;
+  
 }
 
 .user-page-3-close{
