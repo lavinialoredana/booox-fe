@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "./BookScreen.css";
+import "./MyBookScreen.css";
 import image1 from './fotos/image.png';
 
 function MyBookScreen(props) {
@@ -18,26 +19,31 @@ function MyBookScreen(props) {
     userId : loggeduserId
   }
 
+  const [myBookRequests, setMyBookRequests] = useState([]);
+  console.log("mybookrequests", myBookRequests);
+
+
   
    
 
 
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await fetch("http://localhost:3001/requestbook", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // We convert the React state to JSON and send it as the POST body
-      body: JSON.stringify(data),
-    }).then(function (response) {
-      console.log(response);
-    });
+  const handleRequestStatus = (id) => {
 
-    
-   };
+  fetch(`http://localhost:3001/requestUpdate?q=${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" }
+    });
+};
+   
+   useEffect(() => {
+    fetch(`http://localhost:3001/myBookRequestStatus?q=${id}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setMyBookRequests(result);
+      })
+      .catch((error) => console.error(error));
+  }, [id]);
 
 
 
@@ -50,6 +56,8 @@ function MyBookScreen(props) {
       })
       .catch((error) => console.error(error));
   }, [id]);
+
+  console.log("fetcheddATA", fetchedData);
   
 
   const DisplayAll = () => {
@@ -57,7 +65,7 @@ function MyBookScreen(props) {
     return fetchedData.map((any) => {
       return (
         <Fragment key={any.id}>
-        <div className="individual-book-top"><h3 >- BOOK CARD -</h3></div>
+        <div className="individual-book-top"><h3 >- My Book -</h3></div>
         <div key={any.id} className="individual-book">
           <div className="individual-book-child individual-book-child-first ">
 
@@ -83,13 +91,16 @@ function MyBookScreen(props) {
 
           </div>
         </div>
-        <div  className="button-normal button-bookcard">
-        <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>
-              <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>
-              <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>
-        <button><Link to="/">GO BACK</Link></button>
-        <button onClick={handleSubmit}>SUBMIT</button>
-        </div>
+        
+          {myBookRequests.map((any) => {
+           return  <div  className="requests-card">
+              <div className="request-card-child">User Name : {any.name}</div>
+              <div className="request-card-child">User Email : {any.email}</div>
+              <div className="request-card-child">Request Status : {any.status === "Pending" ? <span>Pending</span> : <span>Already Accepted</span>}</div>
+              { any.status == "Pending" ? <button onClick={ () => {handleRequestStatus(any.id)}}>Accept</button> : null}
+              </div>
+          })}
+        
         </Fragment>
       );
       
@@ -99,4 +110,4 @@ function MyBookScreen(props) {
   return <div className="individual-book-container-wrapper"><div className="individual-book-container">{DisplayAll()}</div></div>;
 }
 
-export default My;
+export default MyBookScreen;

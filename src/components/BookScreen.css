@@ -19,7 +19,7 @@
     justify-content: flex-start;
     width: 100%;
     padding-bottom:8rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   
   }
 
@@ -40,7 +40,6 @@
   .individual-book-child{
       height: fit-content;
       min-width: 250px;
-     
       padding: 0rem 2rem;
 
 
@@ -107,6 +106,12 @@
     font-size: 1.7rem;
     padding-bottom: 3rem;
 }
+
+@media only screen and (max-width: 900px) {
+    .individual-book-child-second{
+        display: none;
+    }
+  }
 
 
  

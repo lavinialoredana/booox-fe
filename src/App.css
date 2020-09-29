@@ -58,7 +58,6 @@ a {
 
 .loggedin-navigation{
   display: flex;
-  background: green;
   width: 100%;
   overflow: visible;
 }
@@ -196,19 +195,6 @@ table{
   align-items: center;
 
 }
-
-.single-book-details {
-  flex-basis: 40%;
-  min-height: 160px;
-  padding: 5px 20px;
-  margin: 10px;
-  top: 30px;
-  text-align: left;
-  background-color: rgba(227, 225, 230, 0.932);
-  position: relative;
-  box-shadow: 2px 2px 10px rgb(73, 72, 72);
-
-}
  @media screen and (max-width: 500px) {
   .single-book-details {
     flex-basis: 100%;
@@ -248,57 +234,6 @@ table{
 }
 
 
-/*USER PAGE................................................................................*/
-
-.user-page{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding: 40px 60px;
-  flex-wrap: wrap;
-}
-
-.user-page-1{
-  text-align: center;
-  margin: 20px;
-  flex-basis: 300px;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-} 
-
-.user-page-1-child{
-  margin: 1rem 2rem;
-  padding: 0.6rem 0rem;
-  border-bottom: 1px solid grey;
-  font-size: 1.7rem;
-}
-
-.user-page-2{
-  flex-basis:500px;
-  flex-grow: 1;
-}
-.user-page-2 h2{
-  font-size: 1.5rem;
-}
-
-
-
-.user-page-3-open{
-  display: block;
-  
-}
-
-.user-page-3-close{
-  display: none;
-}
-/*back button ..........................................................................*/
-.user-page a{
-  background-color: green;
-  width: fit-content;
-  padding: 20px 10px;
-  font-size: large;
-}
 
 
 
@@ -401,7 +336,6 @@ table{
 
 .form button{
   background-color: rgb(161, 102, 168);
-  border: 2px solid green;
   border-radius: 3px;
   color: white;
   display: block;

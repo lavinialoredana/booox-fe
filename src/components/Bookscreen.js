@@ -33,7 +33,9 @@ function Bookscreen(props) {
       // We convert the React state to JSON and send it as the POST body
       body: JSON.stringify(data),
     }).then(function (response) {
-      console.log(response);
+      if (response.status === 200) {
+        alert("Your request has been sent, you can check your request on your userprofile")
+      }
     });
 
     
@@ -50,7 +52,7 @@ function Bookscreen(props) {
       })
       .catch((error) => console.error(error));
   }, [id]);
-  
+  console.log(fetchedData);
 
   const DisplayAll = () => {
 

@@ -1,0 +1,18 @@
+.requests-card{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    font-size: 2rem;
+    background-color: rgba(129, 127, 129, 0.596);
+    margin-bottom: 1rem;
+    padding: 1rem 2rem ;
+}
+
+.request-card-child{
+    width: 100%;
+    padding: 1rem 0rem;
+    margin: 0.5rem 0rem;
+
+}

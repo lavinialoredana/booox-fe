@@ -14,15 +14,15 @@ const BookUpload = () => {
     language: "",
   });
 
-  // const initialForm = {
-  //   title: "",
-  //   author: "",
-  //   publisher: "",
-  //   published_date: "2020-01-01",
-  //   isbn: "",
-  //   subtitle: "",
-  //   language: "",
-  // };
+  const initialForm = {
+    title: "",
+    author: "",
+    publisher: "",
+    published_date: "",
+    isbn: "",
+    subtitle: "",
+    language: "",
+  };
 
   const handleOnChange = (event) => {
     const updateFormData = {
@@ -33,20 +33,23 @@ const BookUpload = () => {
   };
 
   const handleSubmit = async (event) => {
+    const token = sessionStorage.getItem("token");
     event.preventDefault();
     await fetch("http://localhost:3001/book", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        token: token, 
       },
       // We convert the React state to JSON and send it as the POST body
       body: JSON.stringify(formData),
     }).then(function (response) {
-      console.log(response);
-      console.log(response.json());
+      if (response.status === 201){
+        alert("Your book has been posted successfully")
+      }
     });
 
-    
+    setFormData(initialForm)
   };
 
   return (

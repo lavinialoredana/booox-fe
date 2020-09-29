@@ -8,13 +8,23 @@ const UserPage = (props) => {
 
   const [renderOnDelete, setRenderOnDelete] = useState(false);
   const [displayMyBook, setDIsplayMyBook] = useState(false);
+  const [displayMyRequests, setDisplayMyRequest] = useState(false);
 
 
   const showBooksFunction = () => {
     if (!displayMyBook){
       setDIsplayMyBook(true)
+      setDisplayMyRequest(false);
     }
     if (displayMyBook) {setDIsplayMyBook(false)};
+  }
+
+  const showMyRequest = () => {
+    if (!displayMyRequests){
+      setDisplayMyRequest(true);
+      setDIsplayMyBook(false);
+    }
+    if (displayMyRequests) {setDisplayMyRequest(false)};
   }
 
   const changeDeleteState = () => {
@@ -43,10 +53,11 @@ const UserPage = (props) => {
       <div className="user-page-1" >
       
         
-      <div className="user-page-1-child" >Profile Area</div> 
-        <div className="user-page-1-child">Total Books owned : {bookDetails.length}</div>
-       <div className="user-page-1-child" onClick={showBooksFunction}>VIEW all my books </div>
-       <div className="user-page-1-child" >Upload a book</div>
+      <div className="user-page-1-child" ><Link to="/userprofile">Profile Area</Link></div> 
+       <div className="user-page-1-child user-page-1-child-2 " onClick={showBooksFunction}>See all my books/requests</div>
+       <div className="user-page-1-child" ><Link to="/bookupload">Upload My Book</Link></div>
+       <div className="user-page-1-child" onClick={showMyRequest} >My requests status</div>
+       <div className="user-page-1-child" ><Link to="/">Back to homepage</Link></div>
        
        
       </div>
@@ -58,50 +69,55 @@ const UserPage = (props) => {
           Here you can find the details on your account status, your book status and so on.
           To Use the user features you can go to the user menu that is on the left side of the navigation bar.bla bla bla 
         </h2>
+        <div className="user-page-1-child">Total Books owned : {bookDetails.length}</div>
         </div>
         
         <div className="user-page-2-books">
         { displayMyBook ? bookDetails.map((any) => (
           <div key={any.id} className="single-book-details">
             <Delete idToDelete={any.id} reRenderFunction={changeDeleteState} />
-            <div>
+            <div className="single-book-text">
+            <div className="single-book-text-child">
               <b>Title :</b> {any.title}
             </div>
-            <div>
+            <div className="single-book-text-child">
               <b>Author :</b> {any.author}
             </div>
-            <div>
+            <div className="single-book-text-child">
               <b>Published date:</b> {any.published_date}
             </div>
-            <div>
+            <div className="single-book-text-child">
               <b>Publisher:</b> {any.publisher}
             </div>
-            <div>
+            <div className="single-book-text-child">
               <b>Subtitle :</b>
               {any.subtitle}
             </div>
-            <div>
+            <div className="single-book-text-child">
               <b>Language:</b> {any.language}
             </div>
-            <div>
+            <div className="single-book-text-child">
               <b>ISBN :</b>
               {any.isbn}
-            </div>
-            <div>
-            <Link to={"/my/book" + any.books_id}>
+            </div >
+            <div className="single-book-text-child">
+            <Link to={"/mybook/" + any.books_id}>
              open Book
             </Link>
               
             </div>
-            <div>
-              <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>
-              <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>
-              <div>request from userxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 <button>accept</button><button>reject</button></div>  
             </div>
+            <div className="single-book-photo"></div>
             
           </div>
         )) : null}
+        
         </div>
+      { displayMyRequests ? <div className="single-book-details myrequests">
+        <div>myrequest1</div>
+        <div>myrequest2</div>
+        <div>myrequest3</div>
+      </div> : null}
       </div>
     </div>
   </Fragment>);

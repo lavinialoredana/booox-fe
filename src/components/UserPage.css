@@ -10,24 +10,45 @@
   
   .user-page-1{
     text-align: center;
-    margin: 20px;
+    margin-right: 20px;
     flex-basis: 300px;
-    min-height: 300px;
     display: flex;
     flex-direction: column;
+    justify-content: top;
+    background-color: rgba(128, 128, 128, 0.24); 
+    height: inherit;
   } 
+
+  .user-page-1:last-child{
+    background-color: rgb(59, 56, 56);
+  }
   
   .user-page-1-child{
     margin: 1rem 2rem;
-    padding: 0.6rem 0rem;
-    border-bottom: 1px solid grey;
+    padding: 2rem 0rem;
+    border-bottom: 1px solid rgb(150, 143, 143);
     font-size: 1.7rem;
+    background-color: rgba(128, 128, 128, 0.24);
+    min-height: 4.5rem;
+    
   }
+
   
+  .user-page-1-child-2:hover{
+    cursor: pointer ;
+    font-size: 2.2rem;
+  }
+  .user-page-1-child:hover{
+    cursor: pointer ;
+    font-size: 2.2rem;
+    background-color: rgb(146, 169, 192);
+  }
   .user-page-2{
     flex-basis:500px;
     flex-grow: 1;
+    background-color: rgba(128, 128, 128, 0.24);
   }
+
   .user-page-2 h2{
     font-size: 1.5rem;
   }
@@ -44,9 +65,77 @@
   }
 
   .user-page a{
-    background-color: green;
-    width: fit-content;
-    padding: 20px 10px;
+    display: block;
     font-size: large;
+    height: 100%;
+    width: 100%;
+    
+  }
+  .user-page a:hover{
+    font-size: 2.2rem;
+  }
+
+  .single-book-details {
+    min-height: 160px;
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+    background-color: rgb(158, 148, 148);
+    position: relative;
+    box-shadow: 2px 2px 10px rgb(73, 72, 72);
+    display: flex;
+    flex-direction: row;
+  
+  }
+  .single-book-text{
+    flex-basis: 70%;
+  }
+
+  .single-book-text-child{
+    padding: 0.5rem ;
+    border-bottom: 1px solid rgb(212, 202, 202);
+    width: 90%;
+  }
+  .single-book-text-child{
+    font-size: 1.4rem;
+  }
+
+  .single-book-photo{
+    height: inherit;
+    flex-basis: 30%;
+    background-color: rgb(153, 98, 98);
+  }
+
+  .single-book-text-child-request-arera{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+
+  .single-book-text-child-request-arera-child{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin: 3px 20px;
+    background-color: rgb(194, 183, 173);
+    font-size: 1.5rem;
+  }
+  
+  .myrequests{
+    background-color:green;
+  }
+
+  .myrequests {
+    min-height: 160px;
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+    background-color: rgb(158, 148, 148);
+    position: relative;
+    box-shadow: 2px 2px 10px rgb(73, 72, 72);
+    display: flex;
+    flex-direction: column;
+  
   }
   
