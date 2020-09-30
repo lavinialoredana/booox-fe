@@ -44,7 +44,6 @@ function App() {
   };
 
   return (
-    
     <Router>
       {isAuthenticated ? (
         <LoggedInNavigation logoutfunction={setAuth} />
@@ -97,10 +96,19 @@ function App() {
             )
           }
         />
-        <Route path="/book/:id" component={Bookscreen} />
-      
-        <Route path="/mybook/:id" component={MyBookScreen} />
+        <Route
+          exact
+          path="/book/:id"
+          render={(props) =>
+            isAuthenticated ? (
+              <Bookscreen {...props} setAuth={setAuth} />
+            ) : (
+              <Redirect to="/" />
+            )
+          }
+        />
 
+        <Route path="/mybook/:id" component={MyBookScreen} />
       </Switch>
     </Router>
   );
