@@ -28,12 +28,16 @@ const HomePage = (props) => {
       <div className="lower-body-child-1">
         <div className="lower-body-child-1-child lower-body-child-1-child-1"><h3>HOW DOES IT</h3><h3>WORK?</h3></div>
         <div className="lower-body-child-1-child lower-body-child-1-child-2"><img className="lower-body-image" src={image}></img></div>
-        <div className="lower-body-child-1-child lower-body-child-1-child-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet finibus tellus. Proin id dapibus libero. Vivamus ac sem at urna dignissim consequat.</div>
+        <div className="lower-body-child-1-child lower-body-child-1-child-3">Swap the books you’ve fallen out of love with for the books you want to read now.
+ Search for your next favorite book,  request it and enjoy it!
+Swapping or lending books is also good for the environment. Get green now! We are here to connect book lovers and swappers!</div>
 
       </div>
       <div className="lower-body-child-2">
         <div className="lower-body-child-2-child lower-body-child-2-child-1"><img className="lower-body-image" src={image1}></img></div>
-        <div className="lower-body-child-2-child lower-body-child-2-child-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet finibus tellus. Proin id dapibus libero. Vivamus ac sem at urna dignissim consequat.</div>
+        <div className="lower-body-child-2-child lower-body-child-2-child-2">Swap the books you’ve fallen out of love with for the books you want to read now.
+ Search for your next favorite book,  request it and enjoy it!
+Swapping or lending books is also good for the environment. Get green now! We are here to connect book lovers and swappers!</div>
         </div>      
     </div>
     <div className="footer">

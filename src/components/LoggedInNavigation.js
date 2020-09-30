@@ -25,9 +25,9 @@ const LoggedInNavigation = (props) => {
 
   return (
     <div className="loggedIn-navigation">
-      <h2 style={{ position: "absolute", left: "8rem" }}>
+      <h2 style={{ position: "absolute", left: "8rem",  }}>
         {" "}
-        <Link to="/userprofile">BOOOX</Link>
+        <Link to="/">BOOOX</Link>
       </h2>
       <aside className="sidebar">
         <div className="sidebar-2" onClick={closeMenu}></div>

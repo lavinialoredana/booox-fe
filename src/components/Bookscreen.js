@@ -86,8 +86,8 @@ function Bookscreen(props) {
           </div>
         </div>
         <div  className="button-normal button-bookcard">
-        <button><Link to="/">GO BACK</Link></button>
-        <button onClick={handleSubmit}>SUBMIT</button>
+        <Link to="/"><button style={{color: "dark-red"}}>GO BACK / CANCEL</button></Link>
+        <button onClick={handleSubmit}>REQUEST BOOK</button>
         </div>
         </Fragment>
       );

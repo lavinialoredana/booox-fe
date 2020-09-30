@@ -1,0 +1,195 @@
+
+
+
+*{
+	box-sizing: border-box;
+	font-size: 1.6rem;
+	font-family: 'Nunito', sans-serif;
+  }
+  
+  /* OK */
+  
+  .login-register-body{
+	background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	height: fit-content;
+	background-image: url("../components/fotos/login.jpg");
+	background-position: center ;
+	width: 100%;
+	/* padding: 2rem 4.4rem; */
+  
+	
+  }
+  .login-register-body-hide{
+	display: none;
+  }
+  
+  /* OK */
+  .login-register-container{
+	width: 850px;
+	margin: 6rem 4rem;
+	max-width: 100%;
+	overflow: hidden;
+	box-shadow: 1px 1px 20px rgb(119, 53, 53);
+  }
+  
+  
+  .login-register-header{
+	/* background-color: rgb(159, 216, 137); */
+	/* text-align: center; */
+	padding: 10px 40px;
+  }
+  .header p{
+	font-size: 1rem;
+  } 
+  .header h2{
+	align-items: flex-start; 
+  }
+  
+  /* OK */ 
+  .form{
+	padding: 40px 40px;
+  }
+  
+  /* OK */ 
+  .form-control{
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+  }
+  
+  /* OK */ 
+  
+  .form-control label{
+	display: block;
+	margin-bottom: 5px;
+	font-weight: 800;
+	color: black;
+  
+  }
+  .form-control input{
+	border: transparent;
+	background-color: transparent;
+	border-bottom: 1px solid black;
+	/* border-radius: 2px; */
+	display: block;
+	font-size: 1.6rem;
+	width: 100%;
+	height: 20px;
+   
+   
+  }
+  
+  /*  some CSS from Internet to make text field more responsive
+  .form-light input[type="checkbox"] + label:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 17px;
+	height: 17px;
+	z-index: 0;
+	border-radius: 1px;
+	margin-top: 2px;
+	-webkit-transition: 0.2s;
+	transition: 0.2s; } */
+  
+  
+	  /* OK  */
+  
+	.form-control :focus{ 
+	  background-color: transparent !important;
+	  outline: none;  
+	  
+	}
+  
+  .form-control.success input{
+	border:none;
+  }
+  .form-control.error input{
+	border: 2px solid red ;
+  }
+  .form-control i{
+	position: absolute;
+	top: 30px;
+	right: 25px;
+	visibility: hidden;
+  
+  }
+  .form-control.success i.fa-check-circle{
+	color:green;
+	visibility: visible;
+  }
+  
+  .form-control.error i.fa-exclamation-circle{
+	color:red;
+	visibility: visible;
+  }
+  
+  
+  .form-control small{
+	visibility: hidden;
+	position: absolute;
+	bottom: 0px;
+	left:0px;
+  }
+  .form-control.error small{
+	color:red;
+	visibility: visible;
+  }
+  
+  
+  .button-div{
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+  }
+  /* OK */ 
+  
+  .form button{
+	width: 120px;
+	height: 60px;
+	background-color: black;
+	border: 2px black;
+	padding: 30px 0px;
+	color: #DBE8EA;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 900;
+	/* width: 100%; */
+  }
+  
+  
+  .form button:hover{
+	border-color: #D7D094;
+	border-radius: 8px;
+	transition: 7s;
+	cursor: pointer;
+  }
+  
+  .renderAverage {
+	text-align: center;
+	font-size: 2rem;
+	color: rgb(19, 206, 28);
+	font-weight: bolder;
+  
+  }
+  
+  .motto-container{
+	  /* height: 300px; */
+	  display: flex;
+	  width: 100%;
+	  align-items: flex-end;
+	  justify-content: center;
+	  flex-direction: column;
+	  padding: 0rem 8rem;
+  }
+  
+  .motto-container-child-1{
+	position: inherit;
+	text-align: left;
+  }

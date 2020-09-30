@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import {Link} from "react-router-dom";
  import Delete from './Delete';
 import "./UserPage.css";
+import image1 from './fotos/book.jpg';
 
 const UserPage = (props) => {
   const [bookDetails, setBookDetails] = useState([]);
@@ -12,6 +13,7 @@ const UserPage = (props) => {
   const [myPendingRequests, setMyPendingRequest] = useState([]);
   const [myOutgoingPendingRequest, setMyOutgoingPendingRequest ] = useState([]);
   
+  console.log(myPendingRequests);
 
   let color = "nogreen";
 
@@ -84,12 +86,19 @@ const UserPage = (props) => {
   return (
     <Fragment>
     <div className="user-page">
+    <div>
+      <h1> Welcome to Boox <i className='fas'>&#xf406;</i> {userDetails.name} </h1>
+        <h2 style={{fontSize: "2rem"}}>Hello {userDetails.name}. Welcome to your member area!
+          Here you can find the details on your account status, your book status and so on.
+          To Use the user features you can go to the user menu that is on the left side of the navigation bar.bla bla bla 
+        </h2>
+      </div>
     
       <div className="user-page-1" >
       
         
       <div className="user-page-1-child" ><Link to="/userprofile">Profile Area</Link></div> 
-       <div className="user-page-1-child user-page-1-child-2 " onClick={showBooksFunction}>See all my books/requests</div>
+       <div className="user-page-1-child user-page-1-child-2 " onClick={showBooksFunction}>See all my books <b>↓</b></div>
        <div className="user-page-1-child" ><Link to="/bookupload">Upload My Book</Link></div>
        <div className="user-page-1-child" onClick={showMyRequest} >Request I made</div>
        <div className="user-page-1-child" ><Link to="/">Back to homepage</Link></div>
@@ -97,13 +106,8 @@ const UserPage = (props) => {
        
       </div>
 
-      <div className="user-page-2">
+  <div className="user-page-2">
         <div className="user-page-2-details">
-      <h1> Welcome to Boox <i className='fas'>&#xf406;</i> {userDetails.name} </h1>
-        <h2>Hello {userDetails.name}. Welcome to your member area!
-          Here you can find the details on your account status, your book status and so on.
-          To Use the user features you can go to the user menu that is on the left side of the navigation bar.bla bla bla 
-        </h2>
         <div className="user-page-1-child">Total Books owned : {bookDetails.length}</div>
         <div>
         
@@ -112,9 +116,9 @@ const UserPage = (props) => {
         <h2 className="user-page-1-child-all-requests">Lists Of Request I got </h2>
         
           { myPendingRequests.map( any => {
-            return any.status === "Pending" ?  <div className="user-page-1-child requestStatus">
+            return any.status === "Pending" ?  <div className="user-page-1-child-pendingrequests requestStatus">
               
-               <div><b>Request From User :</b> {any.name}</div><div><b>Request On Book :</b>{any.title}</div><div><b>Request Status : </b> {any.status}</div><div><b>Requesting User Email :</b> {any.email}</div><div>Open the Book Card to manage the requests</div></div> : null } 
+               <div><b>Request From User :</b> {any.name}</div><div><b>Request On Book :</b>{any.title}</div><div><b>Request Status : </b> {any.status}</div><div><b>Requesting User Email :</b> {any.email}</div><div><Link to={"/mybook/" + any.id}>VIEW DETAILS / ACCEPT / REJECT</Link></div></div> : null } 
           )}
         </div>
         </div>
@@ -123,7 +127,12 @@ const UserPage = (props) => {
         
         
         <div className="user-page-2-books">
-        { displayMyBook ? bookDetails.map((any) => (
+
+                </div>
+      
+      </div>
+      <div className="single-book-details-wrap">
+      { displayMyBook ? bookDetails.map((any) => (
           <div key={any.id} className="single-book-details">
             <Delete idToDelete={any.id} reRenderFunction={changeDeleteState} />
             <div className="single-book-text">
@@ -157,13 +166,12 @@ const UserPage = (props) => {
               
             </div>
             </div>
-            <div className="single-book-photo"></div>
+            <div className="single-book-photo"><img style={{width:"100%", height:"inherit"}} className="lower-body-image" src={image1}></img></div>
             
           </div>
         )) : null}
-        
-        </div>
-      { displayMyRequests ? <div className="single-book-details myrequests">
+
+{ displayMyRequests ? <div className="single-book-details myrequests">
         <h2>REQUEST I MADE</h2>
         {myOutgoingPendingRequest.map( (any) => {
         if (any.status === "accepted"){
@@ -177,6 +185,8 @@ const UserPage = (props) => {
         }
         return <div key={any.id} className={`user-page-1-child requestStatus ${color}`} ><div><b>Request To User :</b> {any.name}</div> <div><b>Request On Book Title :</b>{any.title}</div><div><b>Request Status : </b> {any.status}</div><div><b> Book Owner Email :</b> {any.email}</div></div>})}
       </div> : null}
+        
+
       </div>
     </div>
   </Fragment>);
