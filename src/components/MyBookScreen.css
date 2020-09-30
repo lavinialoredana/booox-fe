@@ -1,5 +1,5 @@
 .requests-card{
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -12,7 +12,21 @@
 
 .request-card-child{
     width: 100%;
-    padding: 1rem 0rem;
-    margin: 0.5rem 0rem;
+    padding: 0.1rem 0rem;
 
+}
+
+.my-book{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        flex-wrap: nowrap;
+        margin-bottom: 8px;
+}
+
+.requestcard-button{
+    padding: 10px 5px;
+    margin: 10px 0px;
 }

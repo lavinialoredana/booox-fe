@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./BookScreen.css";
 import "./MyBookScreen.css";
 import image1 from './fotos/image.png';
+import { render } from "@testing-library/react";
 
 function MyBookScreen(props) {
   const id = props.match.params.id;
@@ -14,6 +15,8 @@ function MyBookScreen(props) {
   
   const loggeduserId = JSON.parse(atob(name.split(".")[1])).user.id;
 
+  
+
   const data = {
     bookId : id,
     userId : loggeduserId
@@ -23,17 +26,35 @@ function MyBookScreen(props) {
   console.log("mybookrequests", myBookRequests);
 
 
-  
+  const [requestStatus, setRequestStatus] = useState(false);
    
 
 
 
-  const handleRequestStatus = (id) => {
+  const handlerequestAccept = (id) => {
 
-  fetch(`http://localhost:3001/requestUpdate?q=${id}`, {
+  fetch(`http://localhost:3001/request/accept?q=${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" }
-    });
+    })
+     if (requestStatus === false ){
+       setRequestStatus(true)
+     }
+     else setRequestStatus(false)
+
+    
+};
+
+const handlerequestReject = (id) => {
+
+  fetch(`http://localhost:3001/request/reject?q=${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" }
+    })
+    if (requestStatus === false ){
+      setRequestStatus(true)
+    }
+    else setRequestStatus(false)
 };
    
    useEffect(() => {
@@ -55,7 +76,7 @@ function MyBookScreen(props) {
         setFetchedData(result);
       })
       .catch((error) => console.error(error));
-  }, [id]);
+  }, [id, requestStatus]);
 
   console.log("fetcheddATA", fetchedData);
   
@@ -66,7 +87,7 @@ function MyBookScreen(props) {
       return (
         <Fragment key={any.id}>
         <div className="individual-book-top"><h3 >- My Book -</h3></div>
-        <div key={any.id} className="individual-book">
+        <div key={any.id} className="my-book">
           <div className="individual-book-child individual-book-child-first ">
 
           <div className="individual-book-card-1">
@@ -97,7 +118,13 @@ function MyBookScreen(props) {
               <div className="request-card-child">User Name : {any.name}</div>
               <div className="request-card-child">User Email : {any.email}</div>
               <div className="request-card-child">Request Status : {any.status === "Pending" ? <span>Pending</span> : <span>Already Accepted</span>}</div>
-              { any.status == "Pending" ? <button onClick={ () => {handleRequestStatus(any.id)}}>Accept</button> : null}
+              { any.status == "Pending" ?
+              <Fragment>
+              <button className="requestcard-button" onClick={ () => {handlerequestAccept(any.id)}}>Accept</button>
+              <button className="requestcard-button" onClick={ () => {handlerequestReject(any.id)}}>Reject</button>
+              </Fragment>
+
+               : null}
               </div>
           })}
         
