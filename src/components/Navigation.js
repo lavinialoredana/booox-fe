@@ -1,29 +1,26 @@
 import React from "react";
-import "../App.css";
+import "./Navigation.css";
 
-import justShareIt from "./fotos/justShareIt.PNG";
 import { Link } from "react-router-dom";
 
 const Navigation = (props) => {
   return (
-    <nav className="navigation">
-      <div className="container">
-        <div className="logo-div">
-          <Link to="/">
-            <img alt="" src={justShareIt} />
-          </Link>
-        </div>
-        <div>
+    <div className="navigation">
+
+        <h2> <Link to="/userprofile">BOOOX</Link></h2>
+      
+
+        <div className="login-register">
           <button className="register">
-            <Link to="signup">SignUp</Link>
+            <Link to="signup">SIGN UP</Link>
           </button>
 
           <button className="login">
-            <Link to="/login">Login</Link>{" "}
+            <Link to="/login">LOGIN</Link>{" "}
           </button>
+
         </div>
-      </div>
-    </nav>
+    </div>
   );
 };
 

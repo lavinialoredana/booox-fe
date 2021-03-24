@@ -105,7 +105,17 @@ const Login = ({ setAuth }) => {
           </div>
           <button>Login</button>
         </form>
+        <div>
+        <div className= "motto-container">
+        <div className= "motto-container-child-1">
+      <h3>  Exchange books. </h3>
+      <h3> Real books. </h3>
+      <h3> The ones with scribbles, dust and wink! bookmarks!</h3>
       </div>
+     </div>
+      </div>
+      </div>
+      
     </div>
   );
 };

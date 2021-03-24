@@ -1,7 +1,6 @@
 import React from "react";
-import "../App.css";
+import "./Navigation.css";
 
-import justShareIt from "./fotos/justShareIt.PNG";
 import { Link } from "react-router-dom";
 
 const LoggedInNavigation = (props) => {
@@ -13,54 +12,52 @@ const LoggedInNavigation = (props) => {
 
   const openMenu = () => {
     document.querySelector(".sidebar").classList.add("open");
+
+    console.log(userDetails);
   };
+  const name = sessionStorage.getItem("token");
+  let userDetails = JSON.parse(atob(name.split(".")[1])).user;
+  console.log("mydetails", userDetails);
 
   const closeMenu = () => {
     document.querySelector(".sidebar").classList.remove("open");
   };
 
   return (
-    <div className="navigation">
+    <div className="loggedIn-navigation">
+      <h2 style={{ position: "absolute", left: "8rem",  }}>
+        {" "}
+        <Link to="/">BOOOX</Link>
+      </h2>
       <aside className="sidebar">
-        <h3>Shopping Categories</h3>
-        <button className="sidebar-close-button" onClick={closeMenu}>
-          x
-        </button>
-        <ul>
-          <li>
+        <div className="sidebar-2" onClick={closeMenu}></div>
+        <div className="sidebar-1">
+          <button className="sidebar-close-button" onClick={closeMenu}>
+            x
+          </button>
+          <div className="sidebar-up">
+            <h2>
+              <i className="fas menuH2">&#xf406;&nbsp;&nbsp;&nbsp;</i>
+              {userDetails.name}
+            </h2>
+          </div>
+          <div>
             <Link to="/userprofile">Profile Area</Link>
-          </li>
-          <li>
-            <Link to="/bookupload">upload Book </Link>
-          </li>
-          <li>
-            <a href="index.html">Wallets</a>
-          </li>
-        </ul>
+          </div>
+
+          <div>
+            <Link to="/bookupload">Upload Books</Link>
+          </div>
+
+          <div onClick={logout}>
+            <a href="index.html">LOGOUT</a>
+          </div>
+        </div>
       </aside>
 
-      <div className="container">
-        <div>
-          <button className="login" onClick={openMenu}>
-            menu
-          </button>
-        </div>
-        <div className="logo-div">
-          <Link to="/">
-            <img alt="" src={justShareIt} />
-          </Link>
-        </div>
-
-        <div>
-          <Link to="/userprofile">
-            {" "}
-            <button className="login">User Page</button>{" "}
-          </Link>
-          <button className="login" onClick={(e) => logout(e)}>
-            logout
-          </button>
-        </div>
-      </div>
+      <button className="login" onClick={openMenu}>
+        User Menu
+      </button>
     </div>
   );
 };

@@ -1,0 +1,227 @@
+.home-page-header{
+    display: flex;
+    width: 100%;
+    height: 280px;
+    flex-direction: column;
+    padding: 3rem 8rem ;
+}
+.home-page-header h1{
+    font-size: 5rem;
+    line-height: 6rem;
+    color: #0B0C0C;
+    font-family: ‘Nunito’, sans-serif;
+}
+
+.home-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+   
+  }
+
+  .home-page-search{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+  }
+  .home-page-search-results{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+  }
+  .search-form-container{
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+  }
+
+  .search-results-table-container{
+      width: 100%;
+  }
+
+  .motto-container{
+      height: 300px;
+      display: flex;
+      width: 100%;
+      align-items: flex-end;
+      justify-content: center;
+      flex-direction: column;   
+      padding: 0rem 8rem;
+  }
+.motto-container h3{
+    font-size: 2rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.search-bar{
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: inherit ;
+    
+}
+.search-bar button{
+    cursor: pointer;
+}
+
+.search-bar form{
+    flex-basis: 85%;
+    display: inline-block;
+    height: inherit;
+    width: 100%;
+}
+.searchbar-input{
+    height: inherit;
+    width: 100%;
+    border: 1px solid grey;
+    font-size: 2.5rem;
+    padding: 0px 20px;
+    
+    
+    
+}
+.searchbar-input:focus{
+    box-shadow: 0 0 10px rgb(133, 133, 134);
+}
+.searchbar-input::placeholder{
+    font-size: 1.6rem;
+}
+
+
+.search-bar button{
+    flex-basis: 20%;
+    display: block;
+    border: none ;
+    height: inherit;
+    padding: 15px 0px;
+    background-color: khaki;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    font-size: 2.5rem;
+
+}
+.search-default-books-div{  
+    font-size: 3rem;
+    word-wrap: break-word;
+    display: inline;
+    padding-right: 10px;    
+
+}
+
+.search-default-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.results-status{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 2rem 4.4rem;
+    
+}
+.results-status h2{
+    width: fit-content;
+
+}
+.lower-body{
+    padding: 8rem 0rem;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    color: blanchedalmond;
+}
+
+.lower-body-child-1{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 8rem;
+    
+}
+.lower-body-child-2{
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding-right: 20rem;
+    
+}
+.lower-body-child-1-child, .lower-body-child-2-child{
+    padding: 0rem 1rem;
+    flex-basis: 300px;
+    height: 300px;
+}
+
+.lower-body-child-1-child-1{
+    font-size: 2.4rem;
+    font-style: italic;
+    color: white;
+}
+.lower-body-child-1-child-3{
+    font-size: 2rem;
+    color: white;
+    font-style: italic;
+
+}
+.lower-body-image{
+    height: inherit;
+    width: 100%
+}
+.lower-body-child-2-child-2{
+    font-size: 2rem;
+    font-style: italic;
+    color: white;
+}
+
+.footer{
+    height: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.footer-child-h2, .footer-child-2, .footer-child-3{
+    font-family: ‘Nunito’, sans-serif;
+}
+.footer-child-2, .footer-child-3{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.footer-child-2 p, .footer-child-3 p{
+    font-size: 1.5rem;
+}
+
+ 
+  
+
+

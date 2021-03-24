@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "../App.css";
-import Button from "./Button";
-import search from "./fotos/search.png";
 
 const Search = (props) => {
   const [inputValue, setInputValue] = useState("");
@@ -16,32 +14,28 @@ const Search = (props) => {
   };
 
   return (
-    <div className="form-wrapper">
+    <div className="search-form-container">
       {/* <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
     </div>  */}
-
-      <form onSubmit={handleOnSubmit} className="search-form">
-        <div className="searchbar">
+      <form onSubmit={handleOnSubmit} className="search-bar">
+        
           <input
             type="text"
             name="search"
             id="search"
             onChange={handleOnChange}
             value={inputValue}
-            placeholder="Search for Books"
+            placeholder="SEARCH FOR INSPIRATION ( BOOKS, AUTHORS, LANGUAGE, CATEGORY … )"
             className="searchbar-input"
           />
-          <div className="search-image-div">
-            <a href="/">
-              {" "}
-              <img alt="" className="voice" src={search} />
-            </a>
-          </div>
-        </div>
+          
+          <button>Search</button>
+          
 
-        <div>
-          <Button buttonName="submit" />
-        </div>
+
+        
+          
+        
       </form>
     </div>
   );

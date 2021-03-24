@@ -15,6 +15,7 @@ import SignUp from "../src/components/SignUp";
 import LoggedInNavigation from "./components/LoggedInNavigation";
 import UserPage from "./components/UserPage";
 import Bookscreen from "./components/Bookscreen";
+import MyBookScreen from "./components/MyBookScreen";
 
 function App() {
   const checkAuthenticated = async () => {
@@ -95,7 +96,19 @@ function App() {
             )
           }
         />
-        <Route path="/book/:id" component={Bookscreen} />
+        <Route
+          exact
+          path="/book/:id"
+          render={(props) =>
+            isAuthenticated ? (
+              <Bookscreen {...props} setAuth={setAuth} />
+            ) : (
+              <Redirect to="/" />
+            )
+          }
+        />
+
+        <Route path="/mybook/:id" component={MyBookScreen} />
       </Switch>
     </Router>
   );

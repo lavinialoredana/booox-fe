@@ -1,0 +1,32 @@
+.requests-card{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    font-size: 2rem;
+    background-color: rgba(129, 127, 129, 0.596);
+    margin-bottom: 1rem;
+    padding: 1rem 2rem ;
+}
+
+.request-card-child{
+    width: 100%;
+    padding: 0.1rem 0rem;
+
+}
+
+.my-book{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        flex-wrap: nowrap;
+        margin-bottom: 8px;
+}
+
+.requestcard-button{
+    padding: 10px 5px;
+    margin: 10px 0px;
+}

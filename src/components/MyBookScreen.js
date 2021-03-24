@@ -1,9 +1,11 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "./BookScreen.css";
+import "./MyBookScreen.css";
 import image1 from './fotos/image.png';
+import { render } from "@testing-library/react";
 
-function Bookscreen(props) {
+function MyBookScreen(props) {
   const id = props.match.params.id;
 
   const [fetchedData, setFetchedData] = useState([]);
@@ -13,33 +15,56 @@ function Bookscreen(props) {
   
   const loggeduserId = JSON.parse(atob(name.split(".")[1])).user.id;
 
+  
+
   const data = {
     bookId : id,
     userId : loggeduserId
   }
 
-  
+  const [myBookRequests, setMyBookRequests] = useState([]);
+  console.log("mybookrequests", myBookRequests);
+
+
+  const [requestStatus, setRequestStatus] = useState(false);
    
 
 
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await fetch("http://localhost:3001/requestbook", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // We convert the React state to JSON and send it as the POST body
-      body: JSON.stringify(data),
-    }).then(function (response) {
-      if (response.status === 200) {
-        alert("Your request has been sent, you can check your request on your userprofile")
-      }
-    });
+  const handlerequestAccept = (id) => {
+
+  fetch(`http://localhost:3001/request/accept?q=${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" }
+    })
+     if (requestStatus === false ){
+       setRequestStatus(true)
+     }
+     else setRequestStatus(false)
 
     
-   };
+};
+
+const handlerequestReject = (id) => {
+
+  fetch(`http://localhost:3001/request/reject?q=${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" }
+    })
+    if (requestStatus === false ){
+      setRequestStatus(true)
+    }
+    else setRequestStatus(false)
+};
+   
+   useEffect(() => {
+    fetch(`http://localhost:3001/myBookRequestStatus?q=${id}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setMyBookRequests(result);
+      })
+      .catch((error) => console.error(error));
+  }, [id]);
 
 
 
@@ -51,16 +76,18 @@ function Bookscreen(props) {
         setFetchedData(result);
       })
       .catch((error) => console.error(error));
-  }, [id]);
-  console.log(fetchedData);
+  }, [id, requestStatus]);
+
+  console.log("fetcheddATA", fetchedData);
+  
 
   const DisplayAll = () => {
 
     return fetchedData.map((any) => {
       return (
         <Fragment key={any.id}>
-        <div className="individual-book-top"><h3 >- BOOK CARD -</h3></div>
-        <div key={any.id} className="individual-book">
+        <div className="individual-book-top"><h3 >- My Book -</h3></div>
+        <div key={any.id} className="my-book">
           <div className="individual-book-child individual-book-child-first ">
 
           <div className="individual-book-card-1">
@@ -85,10 +112,22 @@ function Bookscreen(props) {
 
           </div>
         </div>
-        <div  className="button-normal button-bookcard">
-        <Link to="/"><button style={{color: "dark-red"}}>GO BACK / CANCEL</button></Link>
-        <button onClick={handleSubmit}>REQUEST BOOK</button>
-        </div>
+        
+          {myBookRequests.map((any) => {
+           return  <div  className="requests-card">
+              <div className="request-card-child">User Name : {any.name}</div>
+              <div className="request-card-child">User Email : {any.email}</div>
+              <div className="request-card-child">Request Status : {any.status === "Pending" ? <span>Pending</span> : <span>Already Accepted</span>}</div>
+              { any.status == "Pending" ?
+              <Fragment>
+              <button className="requestcard-button" onClick={ () => {handlerequestAccept(any.id)}}>Accept</button>
+              <button className="requestcard-button" onClick={ () => {handlerequestReject(any.id)}}>Reject</button>
+              </Fragment>
+
+               : null}
+              </div>
+          })}
+        
         </Fragment>
       );
       
@@ -98,4 +137,4 @@ function Bookscreen(props) {
   return <div className="individual-book-container-wrapper"><div className="individual-book-container">{DisplayAll()}</div></div>;
 }
 
-export default Bookscreen;
+export default MyBookScreen;

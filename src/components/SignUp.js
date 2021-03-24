@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../App.css";
+import "./LoginSignUp.css";
 
 const SignUp = ({ setAuth }) => {
   const [formData, setFormData] = useState({
@@ -109,7 +109,17 @@ const SignUp = ({ setAuth }) => {
           <button>Register</button>
         </form>
       </div>
-    </div>
+      <div>
+        <div className= "motto-container">
+        <div className= "motto-container-child-1">
+      <h3>  Exchange books. </h3>
+      <h3> Real books. </h3>
+      <h3> The ones with scribbles, dust and wink! bookmarks!</h3>
+      </div>
+     </div>
+     </div>
+     </div>
+
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-import "../BookUpload.css";
+import { Link } from "react-router-dom";
+import "./UploadBook.css";
 // import Button from "./Button";
 
 const BookUpload = () => {
@@ -13,6 +13,16 @@ const BookUpload = () => {
     subtitle: "",
     language: "",
   });
+
+  const initialForm = {
+    title: "",
+    author: "",
+    publisher: "",
+    published_date: "",
+    isbn: "",
+    subtitle: "",
+    language: "",
+  };
 
   const handleOnChange = (event) => {
     const updatedFormData = {
@@ -33,8 +43,8 @@ const BookUpload = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     const token = sessionStorage.getItem("token");
+    event.preventDefault();
     await fetch("http://localhost:3001/book", {
       method: "POST",
       headers: {
@@ -45,17 +55,24 @@ const BookUpload = () => {
       // We convert the React state to JSON and send it as the POST body
       body: JSON.stringify(formData),
     }).then(function (response) {
-      console.log(response);
-      console.log(response.json());
+      if (response.status === 201) {
+        alert("Your book has been posted successfully");
+      }
     });
-    setFormData(emptyForm);
+
+    setFormData(initialForm);
   };
 
   return (
     <div className="main-container">
-      <div className="uploadbook-form-container">
-        <h2>/ BOOK UPLOAD FORM</h2>
+      <div className="uploadbook-heading">
+        <h2>/ UPLOAD YOUR BOOK</h2>
+        <p>
+          *Submit your book to be reviewed and published to the library. As soon
+          as we will approve your book lorem ipsum lorem ipsum lorem ipsum..
+        </p>
       </div>
+
       <form
         className="uploadbook-form"
         // action="/book"
@@ -167,7 +184,12 @@ const BookUpload = () => {
         </div> */}
 
         {/* <Button buttonName="Submit" /> */}
-        <button className="button-normal">Submit</button>
+        <div className="button-normal">
+          <button>
+            <Link to="/userprofile"> CANCEL</Link>
+          </button>
+          <button>SUBMIT</button>
+        </div>
       </form>
     </div>
   );

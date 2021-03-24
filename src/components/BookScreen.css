@@ -1,0 +1,117 @@
+
+.individual-book-container-wrapper{
+    width: 100%;
+}
+.individual-book-container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: flex-start;
+    margin-left: 8rem;
+    
+}
+
+.individual-book {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom:8rem;
+    flex-wrap: nowrap;
+  
+  }
+
+  .individual-book-top{
+    width: 90%;
+     height: 30px;
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .individual-book-top h3{
+    font-size: 1.5rem;
+    font-family: ‘Nunito’, sans-serif;
+  
+  }
+  .individual-book-child{
+      height: fit-content;
+      min-width: 250px;
+      padding: 0rem 2rem;
+
+
+
+  }
+  .individual-book-child-first{
+    border-bottom: 1px solid black;
+      max-width: 500px;
+  }
+  .individual-book-child-second{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .individual-book-child-second img{
+      height: 100%;
+      width: 100%;
+  }
+
+  .individual-book-child-1{
+      height: 70%;
+      width: 100%;
+  }
+  .individual-book-card-1, .individual-book-card-2, .individual-book-card-3{
+      width: 100%;
+  }
+
+  .individual-book-card-1{
+      padding-bottom: 4rem;
+  }
+  .individual-book-card-1 p{
+      line-height: 2.5rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 2rem;
+      font-style: italic;
+  }
+
+
+  .individual-book-card-2{
+      padding-bottom: 4rem;
+      line-height: 3.3rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 2rem;
+  }
+
+  .individual-book-card-3{
+      line-height: 3.3rem;
+      font-size: 2rem;
+      font-family: 'Nunito', sans-serif;
+      padding-bottom: 2rem;
+  }
+
+  .button-bookcard{
+    display: block;
+    border: none;
+    background-color: transparent;
+    padding-top: 1.7rem;
+    text-align: right;
+    width: 100%;
+    padding-right: 8rem !important;
+    font-weight: bold;
+    font-size: 1.7rem;
+    padding-bottom: 3rem;
+}
+
+@media only screen and (max-width: 900px) {
+    .individual-book-child-second{
+        display: none;
+    }
+  }
+
+
+ 

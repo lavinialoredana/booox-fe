@@ -2,34 +2,82 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import Search from "./Search";
-import Delete from "./Delete";
 
 const SearchResults = () => {
+  const Heading = [
+    "TITLE",
+    "AUTHOR",
+    "BOOK TITLE",
+    "LANGUAGE",
+    "VIEW / Borrow",
+  ];
   const [finalSearchValue, setFinalSearchValue] = useState("");
 
   const [fetchedData, setFetchedData] = useState([]);
 
-  const [renderOnDelete, setRenderOnDelete] = useState(false);
+  // const [renderOnDelete, setRenderOnDelete] = useState(false);
 
-  const [comment, setComment] = useState("");
-  const handleOnChange = (event) => {
-    setComment(event.target.value);
-  };
+  const [preloadedResults, setPreloadedResults] = useState([]);
+
+  useEffect(() => {
+    fetch(`/books`)
+      .then((res) => res.json())
+      .then((result) => setPreloadedResults(result))
+      .catch((error) => console.error(error));
+  }, []);
 
   useEffect(() => {
     fetch(`/search?q=${finalSearchValue}`)
       .then((res) => res.json())
       .then((result) => setFetchedData(result))
       .catch((error) => console.error(error));
-  }, [finalSearchValue, renderOnDelete]);
+  }, [finalSearchValue]);
 
-  const changeDeleteState = () => {
-    if (renderOnDelete === false) {
-      setRenderOnDelete(true);
+  // const changeDeleteState = () => {
+  //   if (renderOnDelete === false) {
+  //     setRenderOnDelete(true);
+  //   } else {
+  //     setRenderOnDelete(false);
+  //   }
+  //   console.log(renderOnDelete);
+  // };
+
+  const resultRender = () => {
+    if (fetchedData.length > 0) {
+      return (
+        <div className="search-results-table-container">
+          <table className="table">
+            <thead>
+              <tr className="table-th-tr">
+                {Heading.map((any, index) => (
+                  <td key={index}>{any}</td>
+                ))}
+              </tr>
+            </thead>
+
+            <tbody>
+              {fetchedData.map((any) => {
+                return (
+                  <tr key={any.id} className="table-tb-tr">
+                    <td className="table-td"> {any.id}</td>
+                    <td> {any.author}</td>
+                    <td> {any.title}</td>
+                    <td> {any.language}</td>
+                    <td>
+                      <Link to={"/book/" + any.id}>
+                        <button>Open</button>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      );
     } else {
-      setRenderOnDelete(false);
+      return <div>please enter another keyword</div>;
     }
-    console.log(renderOnDelete);
   };
 
   //   const filtered = fetchedData.filter(
@@ -42,58 +90,37 @@ const SearchResults = () => {
   //   );
   //   console.log("filtered", filtered);
 
-  const DisplayAll = () => {
-    return fetchedData.map((any) => {
-      return (
-        <div key={any.id} className="single-book-details">
-          <Link to={"/book/" + any.id}>
-            <button>open</button>
-          </Link>
-          <Delete idToDelete={any.id} reRenderFunction={changeDeleteState} />
-          <div>
-            <b>Title :</b> {any.title}
-          </div>
-          <div>
-            <b>Author :</b> {any.author}
-          </div>
-          <div>
-            <b>Published date:</b> {any.published_date}
-          </div>
-          <div>
-            <b>Publisher:</b> {any.publisher}
-          </div>
-          <div>
-            <b>Subtitle :</b>
-            {any.subtitle}
-          </div>
-          <div>
-            <b>Language:</b> {any.language}
-          </div>
-          <div>
-            <b>ISBN :</b>
-            {any.isbn}
-          </div>
-
-          <form>
-            <input
-              type="text"
-              id="book-title"
-              name="title"
-              onChange={handleOnChange}
-              value={comment}
-            ></input>
-            <button>comment</button>
-          </form>
-        </div>
-      );
-    });
-  };
-
   return (
-    <div className="search-results">
+    <div className="home-page-search-results">
       <Search search={setFinalSearchValue} />
 
-      <div className="search-results-display">{DisplayAll()}</div>
+      {/* <Delete idToDelete={any.id} reRenderFunction={changeDeleteState} /> */}
+      <div className="motto-container">
+        <div className="motto-container-child">
+          <h3>Exchange books. Real books.</h3>
+          <h3>The ones with scribbles, dust and wink!</h3>
+          <h3>bookmarks!</h3>
+        </div>
+      </div>
+      <div className="results-status">
+        {finalSearchValue ? (
+          <h2>/ RESULTS</h2>
+        ) : (
+          <h2 className="results-status">/ BOOKS </h2>
+        )}
+      </div>
+      {fetchedData.length > 0 ? resultRender() : null}
+      <div>
+        {!finalSearchValue
+          ? preloadedResults.map((any) => {
+              return (
+                <li key={any.id} className="search-default-books-div">
+                  •&nbsp;&nbsp;{any.title} - {any.author}, {any.language}
+                </li>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 };
