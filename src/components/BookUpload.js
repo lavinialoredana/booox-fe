@@ -32,15 +32,15 @@ const BookUpload = () => {
     setFormData(updatedFormData);
   };
 
-  const emptyForm = {
-    title: "",
-    author: "",
-    publisher: "",
-    published_date: "2020-01-01",
-    isbn: "",
-    subtitle: "",
-    language: "",
-  };
+  // const emptyForm = {
+  //   title: "",
+  //   author: "",
+  //   publisher: "",
+  //   published_date: "2020-01-01",
+  //   isbn: "",
+  //   subtitle: "",
+  //   language: "",
+  // };
 
   const handleSubmit = async (event) => {
     const token = sessionStorage.getItem("token");
